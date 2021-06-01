@@ -1,24 +1,39 @@
-# README
+# あなたと和菓子
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+和菓子屋PRサイト兼顧客レビューサイト
 
-Things you may want to cover:
+### サイトテーマ
+近所の老舗和菓子屋の魅力
 
-* Ruby version
+### テーマを選んだ理由
+両親が町の小さな和菓子屋を営んでおり、もっと多くの人に知ってもらいたいという思いでこのサイトを作成しました。<br />
+大手の和菓子屋さんのようにいろんなサイトでPRしたいけど、広告費がかかるし、もっと簡単にPRしたい！という思いを解決するためのサイトです。<br />
+また、SNSでのPRをしていないお店は参考になる商品レビューが少ないという問題解決の為にもこのサイトで商品別にレビューを見ることが出来ます。<br />
+和菓子よりも洋菓子！という若い方が多くなっている中、皆さんの近くにもある老舗の和菓子屋さんをSNSで知ることが出来れば、<br />
+行ってみよう！と思うきっかけになり、老舗和菓子屋の魅力をより一層広めることができると思っています。<br />
 
-* System dependencies
+### ターゲットユーザー
+- 広告費を安くPRの場がほしい和菓子屋
+- 和菓子離れしている若者ユーザー
+- おすすめの和菓子屋を共有したい和菓子好きユーザー
 
-* Configuration
+### 主な利用シーン
+- 和菓子屋が自身のお店の情報をサイトにアップでき、商品レビューも見ることができる。
+- 和菓子離れしている若者がサイトをみて和菓子のことを少しでも知ることができる。
+- 和菓子好きユーザーが共有したい和菓子を商品別に共有できる。
 
-* Database creation
+## 設計書
+制作中
 
-* Database initialization
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1gxOnxhJLKD60gjl6euRBWOTPY-ar_ORSNn8YSQmFSRs/edit?usp=sharing
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
