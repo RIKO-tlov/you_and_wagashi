@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 my-5">
+      <h2 class="mb-5 font-weight-bold"><i class="far fa-user"></i>マイページ</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4"><%= attachment_image_tag @user, :profile_image_id %></div>
+    <div class="col-sm-8">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>名前</td>
+            <td><%= @user.name =%></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td>行った店</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>行きたい店</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>レビューした店</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "編集", edit_user_path(@user.id), class: "btn btn-dark btn-sm mr-4 mt-3" %>
+    </div>
+  </div>
+</div>
