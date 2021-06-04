@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get "/about" => "homes#about", as: "about"
-    resources :users, only: [:edit, :update, :destroy]
-    get "/users/my_page" => "users#show"
+    resources :users, only: [:show, :edit, :update, :destroy]
     get "users/visit" => "users#visit"
     get "users/wish" => "users#wish"
     get "users/review" => "users#review"
