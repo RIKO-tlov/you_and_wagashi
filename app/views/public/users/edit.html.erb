@@ -6,10 +6,10 @@
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <%= form_with model:@user, local:true do |f| %>
-      <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200'%>
+      <%= form_with model: @user, local:true do |f| %>
+      <%= attachment_image_tag @users, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200'%>
       <label for="inputImage">プロフィール画像</label>
-      <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+      <%= f.attachment_field :profile_image %>
     </div>
     <div class="col-sm-8">
       <p class="mb-3">

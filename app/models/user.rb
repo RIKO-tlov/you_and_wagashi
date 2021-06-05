@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :shops, dependent: :destroy
-  #これは必要か
-  attachment :profile_image_id
+  attachment :profile_image
+
 end
