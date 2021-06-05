@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  #管理者側
+  devise_for :users, :controllers => {
+    sessions: "public/sessions",
+    registrations: "public/registrations"
+  }
+
+  #-----管理者側
   namespace :admin do
     root to: "homes#top"
     resources :shops, only: [:show, :destroy] do
@@ -23,11 +28,5 @@ Rails.application.routes.draw do
       resource :wishes, only: [:create, :destroy]
     end
   end
-
-  devise_for :users, :controllers => {
-    sessions: "public/sessions",
-    passwords: "public/passwords",
-    registrations: "public/registrations"
-  }
 
 end

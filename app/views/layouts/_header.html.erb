@@ -4,10 +4,12 @@
       <ul class="nav">
         <li><a href="#">About</a></li>
         <li><a href="#">和菓子とは</a></li>
-        <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+        <% end %>
         <li><a href="#">ランキング</a></li>
         <li><a href="#">お店一覧</a></li>
-        <li><a href="#">お問い合わせ</a></li>
+        <li><%= link_to "PRする", new_shop_path %></li>
       </ul>
     </div>
 </div>
