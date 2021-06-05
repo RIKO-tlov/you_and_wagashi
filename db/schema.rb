@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_130414) do
   end
 
   create_table "shops", force: :cascade do |t|
+    t.integer "user_id"
     t.string "shop_image_id"
     t.string "name", null: false
     t.string "kana_name", null: false
@@ -37,7 +38,8 @@ ActiveRecord::Schema.define(version: 2021_06_03_130414) do
     t.string "address"
     t.string "url"
     t.string "holiday"
-    t.string "bussiness_hours"
+    t.time "bussiness_start_time"
+    t.time "bussiness_end_time"
     t.string "telephone_number"
     t.text "description", null: false
     t.datetime "created_at", null: false
