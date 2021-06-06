@@ -13,29 +13,30 @@
       <% end %>
       <p class="font-weight-bold">住所</p>
         <ul>
-          <li><% @shop.address %></li>
+          <li><%= @shop.address %></li>
         </ul>
       <p class="font-weight-bold">店舗概要</p>
         <ul>
-          <li><% @shop.description %></li>
+          <li><%= @shop.description %></li>
         </ul>
       <p class="font-weight-bold">URL</p>
         <ul>
-          <li><% @shop.url %></li>
+          <li><%= @shop.url %></li>
         </ul>
       <p class="font-weight-bold">定休日</p>
         <ul>
-          <li><% @shop.holiday %></li>
+          <li><%= @shop.holiday %></li>
         </ul>
       <p class="font-weight-bold">営業時間</p>
         <ul>
           <li>
-            <%= @shop.bussiness_start_time.strftime( "%H:%M" ) %>～<%= @shop.bussiness_end_time.strftime( "%H:%M" ) %>
+            <!-- &.で空の時nilを渡す -->
+            <%= @shop.bussiness_start_time&.strftime( "%H:%M" ) %>～<%= @shop.bussiness_end_time&.strftime( "%H:%M" ) %>
           </li>
         </ul>
       <p class="font-weight-bold">電話番号</p>
         <ul>
-          <li><% @shop.telephone_number %></li>
+          <li><%= @shop.telephone_number %></li>
         </ul>
     </div>
   </div>

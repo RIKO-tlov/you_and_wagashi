@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_130414) do
     t.time "bussiness_end_time"
     t.string "telephone_number"
     t.text "description", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", null: fal
     t.datetime "updated_at", null: false
   end
 
