@@ -5,9 +5,9 @@
     </div>
   </div>
   <div class="row">
+    <%= form_with model: @user, local: true do |f| %>
     <div class="col-sm-4">
-      <%= form_with model: @user, local:true do |f| %>
-      <%= attachment_image_tag @users, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200'%>
+      <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200'%>
       <label for="inputImage">プロフィール画像</label>
       <%= f.attachment_field :profile_image %>
     </div>
@@ -29,7 +29,7 @@
         <%= f.number_field :age, class:"form-control", id:"inputAge" %>
       </p>
       <%= f.submit "変更を保存", class: "btn btn-dark btn-sm mr-4 mt-3" %>
-      <% end %>
     </div>
+    <% end %>
   </div>
 </div>

@@ -13,7 +13,7 @@ class Public::UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(@user)
   end
-
+  
   private
 
   def user_params

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 my-5">
+      <%= attachment_image_tag @shop, :shop_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p><%= @shop.kana_name %></p>
+      <h3><%= @shop.name %></h3>
+      <%= link_to edit_shop_path(@shop) do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+      <p class="font-weight-bold">住所</p>
+        <ul>
+          <li><%= @shop.address %></li>
+        </ul>
+      <p class="font-weight-bold">店舗概要</p>
+        <ul>
+          <li><%= @shop.description %></li>
+        </ul>
+      <p class="font-weight-bold">URL</p>
+        <ul>
+          <li><%= @shop.url %></li>
+        </ul>
+      <p class="font-weight-bold">定休日</p>
+        <ul>
+          <li><%= @shop.holiday %></li>
+        </ul>
+      <p class="font-weight-bold">営業時間</p>
+        <ul>
+          <li>
+            <!-- &.で空の時nilを渡す -->
+            <%= @shop.bussiness_start_time&.strftime( "%H:%M" ) %>～<%= @shop.bussiness_end_time&.strftime( "%H:%M" ) %>
+          </li>
+        </ul>
+      <p class="font-weight-bold">電話番号</p>
+        <ul>
+          <li><%= @shop.telephone_number %></li>
+        </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 my-5">
+      <p>レビュー〇件</p>
+    </div>
+  </div>
+</div>
