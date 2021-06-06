@@ -1,5 +1,6 @@
 class Shop < ApplicationRecord
   belongs_to :user
+  has_many :reviews, dependent: :destroy
   attachment :shop_image
 
 
