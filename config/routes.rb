@@ -19,14 +19,13 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get "/about" => "homes#about", as: "about"
     resources :users, only: [:show, :edit, :update, :destroy] do
-      member do
-        get :visit
-        get :wish
-        get :review
+      collection do
+        get :visits
+        get :wishes
       end
     end
     resources :shops do
-      resources :reviews, except: [:index, :show] #showアクションいるかどうか検討中
+      resources :reviews, except: [:index, :show]
       resource :visits, only: [:create, :destroy]
       resource :wishes, only: [:create, :destroy]
     end

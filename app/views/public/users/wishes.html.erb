@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
   <div class="d-flex flex-row flex-wrap">
-    <% @shops.each do |shop| %>
+    <% current_user.wished_shops.each do |shop| %>
     <%= render 'public/shops/shop_index', shop: shop %>
     <% end %>
   </div>
