@@ -1,13 +1,7 @@
 <div class="container">
+  <%= render 'public/shops/main', shop: @shop %>
   <div class="row">
-    <div class="col-sm-12 my-5">
-      <%= attachment_image_tag @shop, :shop_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <p><%= @shop.kana_name %></p>
-      <h3><%= @shop.name %></h3>
+    <div class="col-sm-12 my-3">
       <%= link_to edit_shop_path(@shop) do %>
         <i class="far fa-edit"></i>
       <% end %>
@@ -42,7 +36,60 @@
   </div>
   <div class="row">
     <div class="col-sm-12 my-5">
-      <p>レビュー〇件</p>
+        <!--星評価-->
+        <div id="average-rating">
+          <h4 class="mb-3">総評価：<%= @reviews.average(:rate).to_f.round(1) %>点</h4>
+        <script>
+          $('#average-rating').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= @reviews.average(:rate) %>,
+          });
+        </script>
+        </div>
+        <!--/星評価-->
+      <p>レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop) %></p>
     </div>
+  </div>
+  <% if @reviews.present? %>
+  <div class="row">
+    <% @reviews.each do |review| %>
+    <div class="col-sm-4">
+      <%#= image_tag post.user.picture.url ,width: '100px' %>
+      <p class="review_product"><%= review.product_name %></p>
+      <p class="posts-prof"><%= review.user.name %><%= review.user.sex %></p><!-- 文字列で表示 -->
+    </div>
+    <div class="col-sm-8 mb-3">
+      <div class=" posts-content"> <!--日時いれたい -->
+        <h4 class="mb-3">評価：<%= review.rate %>点</h4>
+        <!--星評価-->
+        <div id="star-rate-<%= review.id %>"></div>
+        <script>
+          $('#star-rate-<%= review.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= review.rate %>,
+          });
+        </script>
+        <!--/星評価-->
+        <p><%= review.comment %></p>
+      </div>
+      <div class="col-sm-12 edit-button">
+        <% if current_user == review.user %>
+          <%= link_to '編集', edit_shop_review_path(review.shop, review), method: :get, class:'btn btn-dark' %>
+          <%= link_to '削除', shop_review_path(review.shop, review), method: :delete, class:'btn btn-dark' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
   </div>
 </div>

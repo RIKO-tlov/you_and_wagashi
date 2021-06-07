@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get "users/wish" => "users#wish"
     get "users/review" => "users#review"
     resources :shops do
-      resources :reviews #showアクションいるかどうか検討中
+      resources :reviews, except: [:index, :show] #showアクションいるかどうか検討中
       resource :visits, only: [:create, :destroy]
       resource :wishes, only: [:create, :destroy]
     end
