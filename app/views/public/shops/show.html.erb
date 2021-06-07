@@ -34,7 +34,43 @@
         </ul>
         <p class="font-weight-bold"><i class="fas fa-share"></i>share</p>
         <ul>
+          <!-- 店名付きでSNS投稿 -->
           <li><%= social_share_button_tag(@shop.name) %></li>
+        </ul>
+        <!-- 行きたい、行ったボタン -->
+        <ul>
+          <li>
+          <% if @shop.visited_by?(current_user) %>
+            <%= link_to shop_visits_path(@shop), method: :delete do %>
+              <p class="btn btn-success">
+                <%= @shop.visits.count %> <i class="fas fa-shoe-prints"></i> 外す
+              </p>
+            <% end %>
+          <% else %>
+            <%= link_to shop_visits_path(@shop), method: :post do %>
+              <p class="btn btn-success">
+                行った<i class="fas fa-shoe-prints"></i><%= @shop.visits.count %>
+              </p>
+            <% end %>
+          <% end %>
+          </li>
+        </ul>
+        <ul>
+          <li>
+          <% if @shop.wished_by?(current_user) %>
+            <%= link_to shop_wishes_path(@shop), method: :delete do %>
+              <p class="btn btn-secondary">
+                <%= @shop.wishes.count %> <i class="far fa-heart"></i> 外す
+              </p>
+            <% end %>
+          <% else %>
+            <%= link_to shop_wishes_path(@shop), method: :post do %>
+              <p class="btn btn-danger">
+                行きたい <i class="fas fa-heart"></i> <%= @shop.wishes.count %>
+              </p>
+            <% end %>
+          <% end %>
+          </li>
         </ul>
     </div>
   </div>
