@@ -17,3 +17,4 @@
 //= require turbolinks
 //= require jquery.raty.js
 //= require_tree .
+//= require social-share-button

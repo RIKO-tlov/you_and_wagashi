@@ -32,6 +32,10 @@
         <ul>
           <li><%= @shop.telephone_number %></li>
         </ul>
+        <p class="font-weight-bold"><i class="fas fa-share"></i>share</p>
+        <ul>
+          <li><%= social_share_button_tag(@shop.name) %></li>
+        </ul>
     </div>
   </div>
   <div class="row">
