@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations"
   }
 
-  #-----管理者側
+  #管理者側
   namespace :admin do
     root to: "homes#top"
     resources :shops, only: [:show, :destroy] do
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get "/about" => "homes#about", as: "about"
+    get "/ranking" => "shops#ranking", as: "ranking"
     resources :users, only: [:show, :edit, :update, :destroy] do
       collection do
         get :visits

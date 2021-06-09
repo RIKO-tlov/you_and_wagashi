@@ -6,7 +6,7 @@
         <% if user_signed_in? %>
           <li><%= link_to "マイページ", user_path(current_user.id) %></li>
         <% end %>
-        <li><a href="#">ランキング</a></li>
+        <li><%= link_to "ランキング", ranking_path %></li>
         <li><%= link_to "お店一覧", shops_path %></li>
         <li><%= link_to "PRする", new_shop_path %></li>
       </ul>
