@@ -36,6 +36,10 @@ class Public::ShopsController < ApplicationController
     redirect_to shops_path
   end
 
+  def ranking
+    @all_ranks = Shop.create_all_ranks
+  end
+
   private
 
   def shop_params
