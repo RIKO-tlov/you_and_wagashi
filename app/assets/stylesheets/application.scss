@@ -16,104 +16,28 @@
  */
 @import "bootstrap";
 @import "social-share-button";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
-@mixin vertical-align($position) {
-  position:$position;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-@mixin all-transition($time)
-{
-  transition: all $time;
-  -webkit-transition: all $time;
+@font-face {
+  font-family: "komadori-mini";
+  src: font_url('komadori-mini.otf');
 }
 
 body {
-  margin: 0;
-  font-family: 'Muli', sans-serif;
+  font-family: "komadori-mini";
+  src: font_url('komadori-mini.otf') format('truetype');
+  font-family: 'HG行書体', fantasy;
 }
 
 .main {
-  /*background-image: url(PF_top.jpg);
-  background-size: cover;*/
-  height: 600px;
-  width: 85%;
-}
-
-.header {
-  background: #ffffff;
-}
-
-.menu {
-
-  font-weight: 100;
-  background: #ffffff;
-  width: 50px;
+  background-image: url(japanese-paper1.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  width: 100%;
   height: 100%;
-  padding-left: 200px;
-  position: fixed;
-  z-index: 100;
-  -webkit-box-shadow: -3px 0px 5px 0px rgba(0,0,0,0.2);
-  box-shadow: -3px 0px 5px 0px rgba(0,0,0,0.2);
-  right: 0px;
-  @include all-transition(0.3s);
-  color: #222;
-
-  &:hover, &:focus
-  {
-    transform: translate3d(-130px, 0, 0);
-    animation-timing-function: 1s ease-in;
-  }
-
-  .title
-  {
-    top:50%;
-    @include vertical-align(absolute);
-    /*transform: rotate(270deg);*/
-    left: 50px;
-    font-weight: 800;
-    font-size: 15px;
-    padding-left: 50px;
-
-  }
-
-  nav {
-    background: #ffffff;
-    height: 100%;
-    z-index: 100;
-  }
-
-  .nav
-  {
-    @include vertical-align(absolute);
-    font-weight: 100;
-    margin-right: 80px;
-    width: 100px;
-    background: #ffffff;
-
-    li
-    {
-        padding-bottom: 30px;
-        list-style-type: none;
-
-        a
-        {
-          display: block;
-          text-decoration: none;
-          color: inherit;
-          @include all-transition(1.0s);
-
-          &:hover
-          {
-            color: #aaa;
-          }
-        }
-    }
-  }
-
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 /* リストの点を消去 */
