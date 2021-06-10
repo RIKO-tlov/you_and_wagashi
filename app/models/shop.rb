@@ -21,7 +21,6 @@ class Shop < ApplicationRecord
   end
 
 
-
   validates :name, :kana_name, :postal_code, :address, presence: true
   validates :kana_name, format: { with: /\p{hiragana}/ }
   validates :postal_code, format: { with: /\A\d{7}\z/ }
