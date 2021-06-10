@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 my-3">
+      <%= attachment_image_tag @shop, :shop_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p><%= @shop.kana_name %></p>
+      <h3><%= @shop.name %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 my-3">
+      <p class="font-weight-bold">住所</p>
+        <ul>
+          <li><%= @shop.address %></li>
+        </ul>
+      <p class="font-weight-bold">店舗概要</p>
+        <ul>
+          <li><%= @shop.description %></li>
+        </ul>
+      <p class="font-weight-bold">URL</p>
+        <ul>
+          <li><%= @shop.url %></li>
+        </ul>
+      <p class="font-weight-bold">定休日</p>
+        <ul>
+          <li><%= @shop.holiday %></li>
+        </ul>
+      <p class="font-weight-bold">営業時間</p>
+        <ul>
+          <li>
+            <!-- &.で空の時nilを渡す -->
+            <%= @shop.bussiness_start_time&.strftime( "%H:%M" ) %>～<%= @shop.bussiness_end_time&.strftime( "%H:%M" ) %>
+          </li>
+        </ul>
+      <p class="font-weight-bold">電話番号</p>
+        <ul>
+          <li><%= @shop.telephone_number %></li>
+        </ul>
+        <!-- 行きたい、行ったボタン -->
+        <ul>
+          <li>
+            行った <%= @shop.visits.count %>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <i class="far fa-heart"></i> 行きたい <%= @shop.wishes.count %>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 my-5">
+        <!--星評価-->
+        <div id="average-rating">
+          <h4 class="mb-3">総評価：<%= @reviews.average(:rate).to_f.round(1) %>点</h4>
+        <script>
+          $('#average-rating').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= @reviews.average(:rate) %>,
+          });
+        </script>
+        </div>
+        <!--/星評価-->
+      <p>レビュー<%= @reviews.count %>件</p>
+    </div>
+  </div>
+  <% if @reviews.present? %>
+  <div class="row">
+    <% @reviews.each do |review| %>
+    <div class="col-sm-4">
+      <%#= image_tag post.user.picture.url ,width: '100px' %>
+      <p class="review_product"><%= review.product_name %></p>
+      <p class="posts-prof"><%= review.user.name %><%= review.user.sex %></p><!-- 文字列で表示 -->
+    </div>
+    <div class="col-sm-8 mb-3">
+      <div class=" posts-content"> <!--日時いれたい -->
+        <h4 class="mb-3">評価：<%= review.rate %>点</h4>
+        <!--星評価-->
+        <div id="star-rate-<%= review.id %>"></div>
+        <script>
+          $('#star-rate-<%= review.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= review.rate %>,
+          });
+        </script>
+        <!--/星評価-->
+        <p><%= review.comment %></p>
+      </div>
+      <div class="col-sm-12 edit-button">
+        <%= link_to '削除', shop_review_path(review.shop, review), method: :delete, class:'btn btn-dark' %>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+  </div>
+</div>
