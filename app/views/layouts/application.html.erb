@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://kit.fontawesome.com/98efb693fc.js" crossorigin="anonymous"></script>
     <title>YouAndWagashi</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,23 +11,59 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= render 'layouts/header' %>
-   <div class="main">
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
+  <body class="d flex-colum vh-100">
+    <header>
+      <nav class="navbar sticky-top navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">あなたと和菓子と</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_user_registration_path %>
+                </li>
+                <li class-"nav-item">
+                  <%= link_to "ログイン", new_user_session_path %>
+                </li>
+              <% end %>
+                <li class="nav-item">
+                  <%= link_to "About", about_path %>
+                </li>
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "マイページ", user_path(current_user.id) %></li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "マイページ", new_user_registration_path %>
+                </li>
+              <% end %>
+                <li class="nav-item">
+                  <%= link_to "ランキング", ranking_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "お店一覧", shops_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "PRする", new_shop_path %>
+                </li>
+            </ul>
+          </div>
+      </nav>
+    </header>
 
-    <%= yield %>
-  </div>
+    <div class="main">
+      <%= yield %>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
   </body>
 </html>

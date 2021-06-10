@@ -1,49 +1,63 @@
-<h2>Sign up</h2>
-
-<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">新規登録</h2>
+    </div>
   </div>
+  <div class="form-group text-center">
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
+      <div class="form-group row">
+        <div class="col-xs-4 mx-auto">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-4 mx-auto">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-4 mx-auto">
+          <%= f.label :birthdate %><br />
+          <%= f.date_select :birthdate, {start_year: 1900, end_year: 2021}, class:"form-control-sm" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-4 mx-auto">
+          <%= f.label :age %><br />
+          <%= f.number_field :age, class:"form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-4 mx-auto">
+          <%= f.label :sex %><br />
+          <%= f.radio_button :sex, "男", class:"form-control-sm" %>男 <%= f.radio_button :sex, "女" , class:"form-control-sm" %>女
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-4 mx-auto">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-4 mx-auto">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      </div>
+      <div class="actions mx-auto mb-2">
+        <%= f.submit "新規登録", class: "btn btn-dark btn-sm" %>
+      </div>
+      
+    <% end %>
+    <%= render "public/shared/links" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
-  <div class="field">
-    <%= f.label :birthdate %><br />
-    <%= f.date_select :birthdate, {start_year: 1900, end_year: 2021} %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.number_field :age %>歳
-  </div>
-  
-  <div class="field">
-    <%= f.label :sex %><br />
-    <%= f.radio_button :sex, "男" %>男 <%= f.radio_button :sex, "女" %>女
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>
