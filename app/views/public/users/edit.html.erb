@@ -1,17 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 my-5">
-      <h2 class="mb-5 font-weight-bold"><i class="far fa-user"></i>マイページ編集</h2>
-    </div>
-  </div>
-  <div class="row">
-    <%= form_with model: @user, local: true do |f| %>
-    <div class="col-sm-4">
-      <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200'%>
+    <div class="col-sm-5 text-center">
+      <h2 class="font-weight-bold mb-3">マイページ編集</h2>
+      <%= form_with model: @user, local: true do |f| %>
+      <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.png", size:'150x150'%><br />
       <label for="inputImage">プロフィール画像</label>
-      <%= f.attachment_field :profile_image %>
+      <p><%= f.attachment_field :profile_image %></p>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-7">
       <p class="mb-3">
         <label for="inputName">名前</label><br />
         <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"name" %>

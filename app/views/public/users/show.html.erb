@@ -1,34 +1,31 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 my-5">
-      <h2 class="mb-5 font-weight-bold"><i class="far fa-user"></i>マイページ</h2>
+    <div class="col-sm-5 text-center">
+      <h2 class="font-weight-bold mb-3">マイページ</h2>
+      <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.png", size:'150x150' %>
+      <p>プロフィール画像</p>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200' %>
-    </div>
-    <div class="col-sm-8">
+    <div class="col-sm-7 pt-5">
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td>名前</td>
+            <td class="font-weight-bold">名前</td>
             <td><%= @user.name %></td>
           </tr>
           <tr>
-            <td>メールアドレス</td>
+            <td class="font-weight-bold">メールアドレス</td>
             <td><%= @user.email %></td>
           </tr>
           <tr>
-            <td>生年月日</td>
+            <td class="font-weight-bold">生年月日</td>
             <td><%= @user.birthdate %></td>
           </tr>
           <tr>
-            <td>年齢</td>
+            <td class="font-weight-bold">年齢</td>
             <td><%= @user.age %></td>
           </tr>
           <tr>
-            <td>行った店</td>
+            <td class="font-weight-bold">行った店</td>
             <td>
               <%= link_to visits_users_path do %>
                 <%= @user.visits.count %>件
@@ -36,7 +33,7 @@
             </td>
           </tr>
           <tr>
-            <td>行きたい店</td>
+            <td class="font-weight-bold">行きたい店</td>
             <td>
               <%= link_to wishes_users_path do %>
                 <%= @user.wishes.count %>件
@@ -44,7 +41,7 @@
             </td>
           </tr>
           <tr>
-            <td>レビューした店</td>
+            <td class="font-weight-bold">レビューした店</td>
             <td>
               <%#= link_to reviews_users_path do %>
                 <%#= @user.reviews.count %>件
@@ -54,7 +51,7 @@
         </tbody>
       </table>
       <% if @user.id == current_user.id %>
-        <%= link_to "編集", edit_user_path(@user.id), class: "btn btn-dark btn-sm mr-4 mt-3" %>
+        <%= link_to "編集", edit_user_path(@user.id), class: "btn btn-dark btn-sm mt-3" %>
       <% end %>
     </div>
   </div>
