@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 mt-5">
+      <%= form_with model: [:admin, @genre], local: true do |f| %>
+        <%= f.text_field :name, placeholder: "ジャンル名", class: "mb-2" %>
+        <%= f.submit "　新規登録　", class: "btn btn-success" %>
+      <% end %>
+    </div>
+    <div class="col-sm-7">
+      <h3>ジャンル一覧</h3>
+      <table class="table table-inverse">
+        <thead>
+          <tr>
+            <th class="table-light border-dark">ジャンル</th>
+            <th colspan="1", class="table-light border-dark"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr>
+            <td class="align-middle border-dark"><%= genre.name %></td>
+            <td class="align-middle border-dark", style="width: 30%">
+              <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-success" %>
+              <%= link_to "削除", admin_genre_path(genre), method: :delete, class: "btn btn-success" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
