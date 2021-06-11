@@ -1,12 +1,14 @@
-<div class="card mb-5 mr-2", style="width:25%">
+<div class="col-sm-6 col-md-4">
+  <div class="card-deck mb-5 mr-2">
   <div class="card">
     <div class ="shop-image">
-      <p class="img card-img-top"><%= attachment_image_tag shop, :shop_image, width: "100%", format: "jpeg", fallback: "no_image.png" %></p>
+      <p class="img card-img-top"><%= attachment_image_tag shop, :shop_image, format: "jpeg", fallback: "no_image.png", class:"card-image" %></p>
     </div>
     <div class="card-body">
       <p class="card-title font-weight-bold"><%= shop.name %></p>
       <p class="shop-description"><%= shop.description %></p>
       <%= link_to "more", shop_path(shop), class: "btn btn-dark btn-sm mr-4 mt-3" %>
     </div>
+  </div>
   </div>
 </div>
