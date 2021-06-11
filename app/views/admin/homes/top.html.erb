@@ -9,7 +9,46 @@
         </div>
         <div class="card-body">
           <p class="card-title font-weight-bold"><%= shop.name %></p>
-          <%= link_to "more", admin_shop_path(shop), class: "btn btn-dark btn-sm mr-4 mt-3" %>
+          <p class="font-weight-bold">住所</p>
+            <ul>
+              <li><%= shop.address %></li>
+            </ul>
+          <p class="font-weight-bold">店舗概要</p>
+            <ul>
+              <li><%= shop.description %></li>
+            </ul>
+          <p class="font-weight-bold">URL</p>
+            <ul>
+              <li><%= shop.url %></li>
+            </ul>
+          <p class="font-weight-bold">定休日</p>
+            <ul>
+              <li><%= shop.holiday %></li>
+            </ul>
+          <p class="font-weight-bold">営業時間</p>
+            <ul>
+              <li>
+                <!-- &.で空の時nilを渡す -->
+                <%= shop.bussiness_start_time&.strftime( "%H:%M" ) %>～<%= shop.bussiness_end_time&.strftime( "%H:%M" ) %>
+              </li>
+            </ul>
+          <p class="font-weight-bold">電話番号</p>
+            <ul>
+              <li><%= shop.telephone_number %></li>
+            </ul>
+            <!-- 行きたい、行ったボタン -->
+            <ul>
+              <li>
+                行った <%= shop.visits.count %>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <i class="far fa-heart"></i> 行きたい <%= shop.wishes.count %>
+              </li>
+            </ul>
+            <%= link_to "レビューを見る", admin_shop_reviews_path(shop, shop.review), class: "btn btn-dark btn-sm mr-4 mt-3" %>
+            <%= link_to '削除', admin_shop_path(shop), method: :delete, class:'btn btn-dark' %>
         </div>
       </div>
     </div>
