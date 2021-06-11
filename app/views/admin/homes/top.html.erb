@@ -47,7 +47,7 @@
                 <i class="far fa-heart"></i> 行きたい <%= shop.wishes.count %>
               </li>
             </ul>
-            <%= link_to "レビューを見る", admin_shop_reviews_path(shop, shop.review), class: "btn btn-dark btn-sm mr-4 mt-3" %>
+            <%= link_to "レビューを見る", admin_shop_reviews_path(shop, shop.reviews), class: "btn btn-dark btn-sm mr-4 mt-3" %>
             <%= link_to '削除', admin_shop_path(shop), method: :delete, class:'btn btn-dark' %>
         </div>
       </div>

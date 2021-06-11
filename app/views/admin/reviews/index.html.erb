@@ -1,0 +1,33 @@
+<% if @reviews.present? %>
+  <div class="row">
+    <% @reviews.each do |review| %>
+    <div class="col-sm-4">
+      <%#= image_tag post.user.picture.url ,width: '100px' %>
+      <p class="review_product"><%= review.product_name %></p>
+      <p class="posts-prof"><%= review.user.name %><%= review.user.sex %></p><!-- 文字列で表示 -->
+    </div>
+    <div class="col-sm-8 mb-3">
+      <div class=" posts-content"> <!--日時いれたい -->
+        <h4 class="mb-3">評価：<%= review.rate %>点</h4>
+        <!--星評価-->
+        <div id="star-rate-<%= review.id %>"></div>
+        <script>
+          $('#star-rate-<%= review.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= review.rate %>
+          });
+        </script>
+        <!--/星評価-->
+        <p><%= review.comment %></p>
+      </div>
+      <div class="col-sm-12 edit-button">
+        <%= link_to '削除', admin_shop_review_path(review.shop, review), method: :delete, class:'btn btn-dark' %>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
