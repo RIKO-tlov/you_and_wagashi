@@ -7,7 +7,7 @@ class Public::ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
-    @shop.save!
+    @shop.save
     redirect_to shops_path
   end
 
