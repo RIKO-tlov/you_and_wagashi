@@ -6,7 +6,7 @@
   </div>
   <%= render 'public/shops/main', shop: @shop %>
   <%= form_with(model:[@shop, @review], :url => {:action => :update}, local: true) do |f| %>
-  <%= render 'public/shops/review_form', f: f %>
+  <%= render 'public/reviews/review_form', f: f %>
   <div class="form-group row">
     <div class="col-sm-12">
     <div id="edit-rating-form">
