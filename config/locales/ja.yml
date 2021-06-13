@@ -11,3 +11,7 @@ ja:
         birthdate: 生年月日
         age: 年齢
         password_confirmation: パスワード確認
+      time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
+        short: "%m/%d %H:%M"

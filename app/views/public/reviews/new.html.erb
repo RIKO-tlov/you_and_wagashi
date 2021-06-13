@@ -6,7 +6,7 @@
   </div>
   <%= render 'public/shops/main', shop: @shop %>
   <%= form_with(model:[@shop, @review], :url => {:action => :create}, local: true) do |f| %>
-  <%= render 'public/shops/review_form', f: f %>
+  <%= render 'public/reviews/review_form', f: f %>
   <div class="form-group row">
     <div class="col-sm-12">
     <div id="rating-form">
@@ -14,9 +14,9 @@
       <%= f.hidden_field :rate %>
       <script>
         $('#rating-form').raty({
-        starOn: "<%= asset_path('star-on.png') %>",
-        starOff: "<%= asset_path('star-off.png') %>",
-        starHalf: "<%= asset_path('star-half.png') %>",
+        starOn: '<%= asset_path('star-on.png') %>',
+        starOff: '<%= asset_path('star-off.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
         scoreName: 'review[rate]', /* reviewカラムに保存 */
         half: true,
         });

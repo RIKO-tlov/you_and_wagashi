@@ -2,6 +2,7 @@ class Review < ApplicationRecord
 
   belongs_to :user
   belongs_to :shop
+  attachment :product_image
 
   #星評価を1~5段階で設定
   validates :rate, numericality: {

@@ -15,3 +15,105 @@
   height: 50vh;
   object-fit: cover;
 }
+
+.main-image {
+  width: 100%;
+  height: 70vh;
+  object-fit: contain;
+}
+
+/* 行ったボタン */
+.btn-square-raised {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #ffba78;/*ボタン色*/
+  color: #ffba78;/*ボタン色と同じに*/
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #d27d00;
+  border-radius: 3px;/*角の丸み*/
+  font-weight: bold;
+  text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
+}
+
+.btn-square-raised:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+/* 行きたいボタン */
+.btn-square-raised-wish {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #ff8181;/*ボタン色*/
+  color: #ff8181;/*ボタン色と同じに*/
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #bd6565;
+  border-radius: 3px;/*角の丸み*/
+  font-weight: bold;
+  text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
+}
+
+.btn-square-raised-wish:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+
+/* 吹き出しボタン*/
+.balloon    {
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:5px;
+    }
+
+.balloon span.number    {
+    color:#777;
+    font-size:90%;
+    line-height:2em;
+    padding:5px 10px;
+
+    position: relative;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius:4px;
+    }
+
+.balloon span.number:after,
+.balloon span.number:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: "";
+    position: absolute;
+    }
+
+.balloon span.number:after  {
+    border-right-color: #fff;
+    border-width: 4px;
+    margin-top: -4px
+    }
+
+.balloon span.number:before {
+    border-right-color: #ccc;
+    border-width: 5px;
+    margin-top: -5px;
+    }
+
+/* 枠を超えたら折り返す */
+p {
+  word-break : break-all;
+}
+
+/* レビュー枠 */
+.reviews {
+  background: #ffffff;
+  border: 5px solid #e5b7be;
+}

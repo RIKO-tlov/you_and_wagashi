@@ -1,11 +1,14 @@
 <div class="row">
-  <div class="col-sm-12 my-3">
-    <%= attachment_image_tag shop, :shop_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.png", size:'200x200' %>
+  <div class="col-sm-3 mx-auto my-5">
+    <p class="pt-5"><%= shop.kana_name %></p>
+    <h2 class="title font-weight-bold pb-2"><%= shop.name %></h2>
+    <% if shop.user == current_user %>
+      <%= link_to edit_shop_path(@shop) do %><i class="far fa-edit"></i>編集<% end %>
+    <% end %>
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-12">
-    <p><%= shop.kana_name %></p>
-    <h3><%= shop.name %></h3>
+  <div class="col-sm-7 mx-auto mb-3">
+    <%= attachment_image_tag shop, :shop_image, format: 'jpeg', fallback: "no_image.png", class:"main-image" %>
   </div>
 </div>
