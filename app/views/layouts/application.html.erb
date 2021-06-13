@@ -13,7 +13,7 @@
 
   <body class="d flex-colum vh-100">
     <header>
-      <nav class="navbar sticky-top navbar-light bg-light">
+      <nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">あなたと和菓子と</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
@@ -42,10 +42,10 @@
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ジャンル一覧", ranking_path %>
+                  <%= link_to "ジャンル一覧", admin_genres_path %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "お店一覧", shops_path %>
+                  <%= link_to "お店一覧", admin_root_path %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "レビュー一覧", new_shop_path %>

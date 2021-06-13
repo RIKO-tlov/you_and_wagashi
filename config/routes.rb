@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #管理者側
   namespace :admin do
     root to: "homes#top"
-    resources :shops, only: [:show, :destroy] do
+    resources :shops, only: [:destroy] do
       resources :reviews, only: [:index, :destroy]
     end
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
