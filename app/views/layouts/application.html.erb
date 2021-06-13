@@ -13,7 +13,7 @@
 
   <body class="d flex-colum vh-100">
     <header>
-      <nav class="navbar sticky-top navbar-light bg-light">
+      <nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">あなたと和菓子と</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
@@ -25,25 +25,9 @@
                 <li class="nav-item">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                 </li>
-              <% else %>
                 <li class="nav-item">
-                  <%= link_to "新規登録", new_user_registration_path %>
+                  <%= link_to "マイページ", user_path(current_user.id) %>
                 </li>
-                <li class-"nav-item">
-                  <%= link_to "ログイン", new_user_session_path %>
-                </li>
-              <% end %>
-                <li class="nav-item">
-                  <%= link_to "About", about_path %>
-                </li>
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "マイページ", user_path(current_user.id) %></li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to "マイページ", new_user_registration_path %>
-                </li>
-              <% end %>
                 <li class="nav-item">
                   <%= link_to "ランキング", ranking_path %>
                 </li>
@@ -53,6 +37,39 @@
                 <li class="nav-item">
                   <%= link_to "PRする", new_shop_path %>
                 </li>
+              <% elsif admin_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ジャンル一覧", admin_genres_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "お店一覧", admin_root_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "レビュー一覧", new_shop_path %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_user_registration_path %>
+                </li>
+                <li class-"nav-item">
+                  <%= link_to "ログイン", new_user_session_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "About", about_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ランキング", ranking_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "お店一覧", shops_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "マイページ", new_user_registration_path %>
+                </li>
+              <% end %>
             </ul>
           </div>
       </nav>
