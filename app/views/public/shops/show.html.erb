@@ -76,11 +76,15 @@
     </div>
     <div class="col-sm-3 edit-button">
       <% if current_user == review.user %>
-        <%= link_to '編集', edit_shop_review_path(review.shop, review), method: :get, class:'btn btn-dark mt-5' %>
-        <%= link_to '削除', shop_review_path(review.shop, review), method: :delete, class:'btn btn-dark mt-5' %>
+        <%= link_to edit_shop_review_path(review.shop, review), method: :get, class:'btn-circle-border mr-2 mt-5' do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        <%= link_to shop_review_path(review.shop, review), method: :delete, class:'btn-circle-border-delete mt-5' do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
       <% end %>
     </div>
-    <% end %>
+  <% end %>
   <% else %>
     <div class="row">
       <div class="col-sm-12 mx-auto">
