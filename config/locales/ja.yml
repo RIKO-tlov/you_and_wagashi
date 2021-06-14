@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        name: 名前
+        sex: 性別
+        birthdate: 生年月日
+        age: 年齢
+        password_confirmation: パスワード確認
+      time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
+        short: "%m/%d %H:%M"
