@@ -36,11 +36,23 @@ header {
 header a {
   text-decoration: none;
   color: #fff;
+  margin-right: 5px;
+  margin-bottom: 4px;
+  display: inline-block;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 header a:hover {
   text-decoration: none;
-  color: #fff
+  color: #fff;
+   -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+button i {
+  color: #fff;
 }
 
 .main {
@@ -54,4 +66,3 @@ header a:hover {
 ul {
   list-style: none;
 }
-
