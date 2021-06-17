@@ -1,13 +1,17 @@
 <div class="container">
+  <div class="row">
+    <div class="col-sm-3 mx-auto py-5">
+      <h2 class="title text-center pb-3">マイページ編集</h2>
+    </div>
+  </div>
   <%= form_with model: @user, local: true do |f| %>
   <div class="row">
     <div class="col-sm-5 text-center">
-      <h2 class="font-weight-bold mb-3">マイページ編集</h2>
       <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.png", size:'150x150'%><br />
       <label for="inputImage">プロフィール画像</label>
-      <p><%= f.attachment_field :profile_image %></p>
+      <%= f.attachment_field :profile_image %>
     </div>
-    <div class="col-sm-4 pt-5">
+    <div class="col-sm-4">
       <p class="mb-3">
         <label for="inputName">名前</label><br />
         <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"name" %>
@@ -24,7 +28,7 @@
         <label for="inputAge">年齢</label><br />
         <%= f.number_field :age, class:"form-control", id:"inputAge" %>
       </p>
-      <%= f.submit "変更を保存", class: "btn btn-dark btn-sm mr-4 mt-3" %>
+      <p><%= f.submit "変更を保存", class: "btn mt-3" %></p>
     </div>
   </div>
   <% end %>
