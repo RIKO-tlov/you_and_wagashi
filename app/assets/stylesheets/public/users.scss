@@ -5,3 +5,31 @@
 table {
   color: #96514d !important;
 }
+
+p .btn {
+  background-color: #38b48b;
+  color: #fff;
+}
+
+p .btn:hover {
+  background-color: #fff;
+  border-color: #38b48b;
+  color: #38b48b;
+}
+
+td a {
+  text-decoration: underline;
+  color: #96514d;
+  display: inline-block;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+
+}
+
+td a:hover {
+  text-decoration: none;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  color: #f08300;
+}

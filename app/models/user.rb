@@ -12,4 +12,6 @@ class User < ApplicationRecord
   has_many :wished_shops, through: :wishes, source: :shop
   attachment :profile_image
 
+  validates :name, :email, presence: true
+
 end
