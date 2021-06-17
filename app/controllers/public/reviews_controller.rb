@@ -6,11 +6,14 @@ class Public::ReviewsController < ApplicationController
   end
 
   def create
-    shop = Shop.find(params[:shop_id])
-    review = current_user.reviews.new(review_params)
-    review.shop_id = shop.id
-    review.save
-    redirect_to shop_path(shop)
+    @shop = Shop.find(params[:shop_id])
+    @review = current_user.reviews.new(review_params)
+    @review.shop_id = @shop.id
+    if @review.save
+      redirect_to shop_path(@shop)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -20,8 +23,11 @@ class Public::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @review.update(review_params)
-    redirect_to shop_path(params[:shop_id])
+    if @review.update(review_params)
+      redirect_to shop_path(params[:shop_id])
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -35,7 +41,8 @@ class Public::ReviewsController < ApplicationController
                                      :user_id,
                                      :comment,
                                      :rate,
-                                     :product_name)
+                                     :product_name,
+                                     :product_image)
     end
 
 end
