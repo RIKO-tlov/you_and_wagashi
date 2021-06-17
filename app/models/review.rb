@@ -9,4 +9,7 @@ class Review < ApplicationRecord
     less_than_or_equal_to: 5,
     greater_than_or_equal_to: 1
   }, presence: true
+
+  validates :comment, length: { maximum: 200 }
+  validates :product_name, :comment, presence: true
 end

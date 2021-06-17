@@ -67,7 +67,7 @@
 }
 
 
-/* 吹き出しボタン*/
+/* ===== 吹き出し===== */
 .balloon    {
     display:inline-block;
     vertical-align:middle;
@@ -79,7 +79,6 @@
     font-size:90%;
     line-height:2em;
     padding:5px 10px;
-
     position: relative;
     background: #fff;
     border: 1px solid #ccc;
@@ -151,7 +150,7 @@
   border-style: dashed;
 }
 
-/* moreボタン */
+/* ===== moreボタン===== */
 .btn-border-bottom {
   position: relative;
   display: inline-block;
@@ -178,27 +177,18 @@
   top: calc(100% - 3px);
 }
 
-/* 編集を保存ボタン */
-.btn-flat-logo {
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 0.25em 0.5em;
-  text-decoration: none;
-  color: #FFF;
-  background: #00bcd4;
-  transition: .4s;
-}
-
-.btn-flat-logo:hover {
-  background: #1ec7bb;
-}
-
-// .btn {
-//   text-decoration: none;
-// }
 /* 枠を超えたら折り返す */
 p {
   word-break : break-all;
 }
 
+.button {
+  background-color: #38b48b;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #fff;
+  border-color: #38b48b;
+  color: #38b48b;
+}
