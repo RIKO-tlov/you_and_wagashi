@@ -20,18 +20,32 @@
 @import 'font-awesome';
 
 @font-face {
-  font-family: "komadori-mini";
-  src: font_url('komadori-mini.otf');
+  font-family: "komadori+.otf";
+  src: url('/fonts/komadori+.otf') format('truetype');
 }
 
 body {
-  font-family: "komadori-mini";
-  src: font_url('komadori-mini.otf') format('truetype');
-  font-family: 'HG行書体', fantasy;
+  font-family: "komadori+.otf";
+  src: url('/fonts/komadori+.otf') format('truetype');
+  color: #96514d;
+}
+
+header {
+  background-color: #96514d;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .main {
-  background-image: image-url(japanese-paper1.jpg);
+  //background-image: image-url("japanese-paper1.jpg");
   background-size: cover;
   background-repeat: repeat-y;
   width: 100%;
