@@ -5,7 +5,8 @@
       <p class="img card-img-top"><%= attachment_image_tag shop, :shop_image, format: "jpeg", fallback: "no_image.png", class:"card-image" %></p>
     </div>
     <div class="card-body">
-      <p class="card-title font-weight-bold"><%= shop.name %></p>
+      <%= shop.kana_name %>
+      <h5 class="card-title font-weight-bold"><%= shop.name %></h5>
       <p class="shop-description"><%= shop.description %></p>
       <%= link_to "more", shop_path(shop), class: "btn btn-border-bottom font-weight-bold mt-3" %>
     </div>

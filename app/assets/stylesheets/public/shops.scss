@@ -107,47 +107,47 @@
     }
 
 /* 編集ボタン */
-.btn-circle-border {
+.btn-flat-bottom-border {
+  position: relative;
   display: inline-block;
-  text-decoration: none;
-  background: #8cd460;
-  color: rgba(255, 255, 255, 0.47);
   font-weight: bold;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 50%;
-  text-align: center;
-  overflow: hidden;
-  box-shadow: 0px 0px 0px 5px #8cd460;
-  border: solid 2px rgba(255, 255, 255, 0.47);
+  padding: 7px 10px 10px 10px;
+  text-decoration: none;
+  color: #FFF;
+  background: #00a381;
   transition: .4s;
+  border-radius: 10px;
 }
 
-.btn-circle-border:hover {
-  border-style: dashed;
+.btn-flat-bottom-border > span {
+  border-bottom: solid 2px #FFF;
+}
+
+.btn-flat-bottom-border:hover {
+  background: #e6b422 !important;
+  color: #fff;
 }
 
 /* 削除ボタン */
-.btn-circle-border-delete {
+.btn-flat-bottom-border-delete {
+  position: relative;
   display: inline-block;
-  text-decoration: none;
-  background: #cc0033;
-  color: rgba(255, 255, 255, 0.47);
   font-weight: bold;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 50%;
-  text-align: center;
-  overflow: hidden;
-  box-shadow: 0px 0px 0px 5px #cc0033;
-  border: solid 2px rgba(255, 255, 255, 0.47);
+  padding: 7px 10px 10px 10px;
+  text-decoration: none;
+  color: #FFF;
+  background: #d9333f;
   transition: .4s;
+  border-radius: 10px;
 }
 
-.btn-circle-border-delete:hover {
-  border-style: dashed;
+.btn-flat-bottom-border-delete > span {
+  border-bottom: solid 2px #FFF;
+}
+
+.btn-flat-bottom-border-delete:hover {
+  background: #ec6d71;
+  color: #fff;
 }
 
 /* ===== moreボタン===== */
@@ -191,4 +191,32 @@ p {
   background-color: #fff;
   border-color: #38b48b;
   color: #38b48b;
+}
+
+.link {
+  color: #96514d;
+  display: inline-block;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.link:hover {
+  color: #96514d;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+/* レビューテーブルレスポンシブ */
+@media screen and (max-width: 1000px) {
+  table {
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
 }
