@@ -1,0 +1,21 @@
+<div class="wish-button">
+  <% if shop.wished_by?(current_user) %>
+    <%= link_to shop_wishes_path(shop), method: :delete, remote: true do %>
+      <p class="btn-square-raised-wish btn-sm">
+        <i class="far fa-heart"></i> 外す
+      </p>
+    <% end %>
+    <div class="balloon">
+      <span class="number"><%= shop.wishes.count %></span>
+    </div>
+  <% else %>
+    <%= link_to shop_wishes_path(shop), method: :post, remote: true do %>
+      <p class="btn-square-raised-wish btn-sm">
+        <i class="fas fa-heart"></i> 行きたい
+      </p>
+    <% end %>
+    <div class="balloon">
+      <span class="number"><%= shop.wishes.count %></span>
+    </div>
+  <% end %>
+</div>
