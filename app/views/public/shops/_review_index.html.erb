@@ -1,0 +1,48 @@
+<div class="row reviews">
+  <% reviews.each do |review| %>
+  <div class="col-sm-8 mx-auto">
+    <table class="table pt-3">
+      <tbody>
+        <tr>
+          <td style="width: 20%">
+            <p class="posts-prof">投稿者：<%= review.user.name %><%= review.user.sex %></p>
+            <p><%= l review.created_at, format: :short %></p>
+          </td>
+          <td style="width: 10%"><%= attachment_image_tag review, :product_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png", size:"100x100", class:"mt-2" %></td>
+          <td style="width: 40%">
+            <p class="font-weight-bold"><%= review.product_name %></p>
+            <p><%= review.comment %></p>
+            <!--ジャンル-->
+          </td>
+          <td style="width: 40%">
+            <div class="star_review">
+              <p>評価：<%= review.rate %>点</p>
+              <!--星評価-->
+              <div id="star-rate-<%= review.id %>"></div>
+              <script>
+                $('#star-rate-<%= review.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= review.rate %>
+                });
+              </script>
+              <!--/星評価-->
+            </div>
+            <% if current_user == review.user %>
+              <%= link_to edit_shop_review_path(review.shop, review), method: :get, class:'btn-flat-bottom-border mr-2 mt-5' do %>
+                <i class="far fa-edit"></i>
+              <% end %>
+              <%= link_to shop_review_path(review.shop, review), method: :delete, remote: true, class:'btn-flat-bottom-border-delete mt-5' do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </td>
+      </tbody>
+    </table>
+  </div>
+  <% end %>
+</div>
