@@ -6,7 +6,7 @@
         <p><%= @shop.address %></p>
         <div id='map'></div>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKwLkppE9bky_lgoNlZQgSU_41DLl5sOY&callback=initMap" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>" async defer></script>
 
 
       <h5 class="font-weight-bold">店舗概要</h5>
