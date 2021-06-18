@@ -18,7 +18,12 @@
       <h5 class="font-weight-bold"><i class="fas fa-share"></i>share</h5>
         <!-- 店名付きでSNS投稿 -->
         <p><%= social_share_button_tag(@shop.name) %></p>
-      <%= render 'public/shops/buttons', shop: @shop %>
+      <div id="visits_buttons">
+        <%= render 'public/shops/visits_buttons', shop: @shop %>
+      </div>
+      <div id="wishes_buttons">
+        <%= render 'public/shops/wishes_buttons', shop: @shop %>
+      </div>
     </div>
   </div>
   <% if @reviews.present? %>
