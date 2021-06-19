@@ -15,7 +15,7 @@ class Shop < ApplicationRecord
     wishes.where(user_id: user.id).exists?
   end
 
-  #ランキング
+  #行きたい！がランキング
   def self.create_all_ranks
     Shop.find(Wish.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
   end
