@@ -28,4 +28,7 @@ class Shop < ApplicationRecord
   validates :bussiness_start_time, presence: true
   validates :bussiness_end_time, presence: true
   validates :telephone_number, format: { with: /\A\d{10,11}\z/ }
+
+  geocoded_by :address
+  after_validation :geocode
 end
