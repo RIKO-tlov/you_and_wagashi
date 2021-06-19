@@ -5,11 +5,35 @@
       <h5 class="font-weight-bold">住所</h5>
         <p><%= @shop.address %></p>
         <div id='map'></div>
+        <script>
+          let map;
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>" async defer></script>
+            function initMap() {
+              geocoder = new google.maps.Geocoder()
 
+              map = new google.maps.Map(document.getElementById('map'), {
+                // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+                center: {
+                  lat: <%=@shop.latitude%>,
+                  lng: <%=@shop.longitude%>
+                },
+                zoom: 12,
+              });
 
-      <h5 class="font-weight-bold">店舗概要</h5>
+              marker = new google.maps.Marker({
+                // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+                position: {
+                  lat: <%=@shop.latitude%>,
+                  lng: <%=@shop.longitude%>
+                },
+                map: map
+              });
+            }
+        </script>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap">
+        </script>
+      <h5 class="font-weight-bold mt-2">店舗概要</h5>
         <p><%= @shop.description %></p>
       <h5 class="font-weight-bold">URL</h5>
         <p><%= @shop.url %></p>
