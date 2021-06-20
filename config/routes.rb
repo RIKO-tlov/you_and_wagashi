@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       collection do
         get :visits
         get :wishes
+        get :reviews
       end
     end
     resources :shops do

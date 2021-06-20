@@ -17,6 +17,10 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  def reviews
+    @shops = current_user.reviewed_shops.distinct #重複したレコードを削除
+  end
+
   private
 
   def user_params
