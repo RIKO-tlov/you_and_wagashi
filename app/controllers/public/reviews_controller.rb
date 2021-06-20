@@ -31,8 +31,9 @@ class Public::ReviewsController < ApplicationController
   end
 
   def destroy
-    @reviews = Review.find_by(id: params[:id], shop_id:params[:shop_id]).destroy
-    redirect_to shop_path(params[:shop_id])
+    @shop = Shop.find(params[:shop_id])
+    @reviews = @shop.reviews.find(params[:id])
+    @reviews.destroy
   end
 
   private

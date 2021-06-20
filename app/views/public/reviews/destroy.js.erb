@@ -1,1 +1,2 @@
-$('#review_delete_button').html("turbolinks:load","<%= j(render partial: 'public/shops/review_index', locals: {reviews: @reviews}) %>");
+$('review-count').html("<%= @shop.reviews.count %>");
+$('#review_delete_button').html("<%= j(render partial: 'public/shops/review_index', locals: {shop: @shop}) %>");
