@@ -81,11 +81,19 @@
   </div>
   <div class="row">
     <div class="col-sm-8 mx-auto">
-      <div id="review_delete_button">
-        <%= render 'public/shops/review_index', shop: @shop %>
-      </div>
+      <%= render 'public/shops/review_index', shop: @shop%>
     </div>
   </div>
+  <script>
+    $('.star-rate').raty({
+      size: 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+    });
+  </script>
   <% else %>
   <div class="row">
     <div class="col-sm-12 mx-auto">

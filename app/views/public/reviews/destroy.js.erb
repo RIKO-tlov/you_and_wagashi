@@ -1,2 +1,2 @@
-$('review-count').html("<%= @shop.reviews.count %>");
-$('#review_delete_button').html("<%= j(render partial: 'public/shops/review_index', locals: {shop: @shop}) %>");
+<!--$('#review-count').html("<%#= @reviews.count %>");-->
+$('#review-table-<%=@reviews.id%>').remove();
