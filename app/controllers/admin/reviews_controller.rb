@@ -5,7 +5,8 @@ class Admin::ReviewsController < ApplicationController
   end
 
   def destroy
-    Review.find_by(id: params[:id], shop_id:params[:shop_id]).destroy
-    redirect_to admin_root_path
+    review = Review.find_by(id: params[:id], shop_id: params[:shop_id])
+    review.destroy
+    redirect_to request.referrer
   end
 end

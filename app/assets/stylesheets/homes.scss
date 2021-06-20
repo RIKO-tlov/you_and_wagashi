@@ -16,9 +16,22 @@
 @media screen and (max-width: 1000px) {
   .jumbotron {
     background-image: url('PF_top.jpg');
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: contain;
     width: 100%;
     height: 100vh;
   }
+}
+
+.title-top {
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  display: inline-block;
+  text-aling: center;
+  color: #fff;
+
+}
+
+.title-sub-top {
+  color: #fff;
 }
