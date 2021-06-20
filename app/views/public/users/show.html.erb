@@ -47,9 +47,9 @@
           <tr>
             <td class="font-weight-bold">レビューした店</td>
             <td>
-              <%#= link_to reviews_users_path do %>
-                <%#= @user.reviews.count %>件
-              <%# end %>
+              <%= link_to reviews_users_path do %>
+                <%= @user.reviews.count %>件
+              <% end %>
             </td>
           </tr>
         </tbody>

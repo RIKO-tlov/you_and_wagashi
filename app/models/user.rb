@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :shops, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :reviewed_shops, through: :reviews, source: :shop
   has_many :visits, dependent: :destroy
   has_many :visited_shops, through: :visits, source: :shop
   has_many :wishes, dependent: :destroy
