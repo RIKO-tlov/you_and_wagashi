@@ -1,5 +1,5 @@
 <% @shop.reviews.each do |review| %>
-  <table class="table pt-3">
+  <table class="table pt-3" id="review-table-<%=review.id%>">
     <tbody>
       <tr>
         <td style="width: 20%">
@@ -16,18 +16,7 @@
           <div class="star_review">
             <p>評価：<%= review.rate %>点</p>
             <!--星評価-->
-            <div id="star-rate-<%= review.id %>"></div>
-            <script>
-              $('#star-rate-<%= review.id %>').raty({
-                size: 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                half: true,
-                readOnly: true,
-                score: <%= review.rate %>
-              });
-            </script>
+            <div class="star-rate" data-score="<%=review.rate%>"></div>
             <!--/星評価-->
           </div>
           <% if current_user == review.user %>
