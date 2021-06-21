@@ -1,3 +1,59 @@
 // Place all the styles related to the admin/Genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 編集ボタン */
+.btn-flat-bottom-border {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 7px 10px 10px 10px;
+  text-decoration: none;
+  color: #FFF;
+  background: #00a381;
+  transition: .4s;
+  border-radius: 10px;
+}
+
+.btn-flat-bottom-border > span {
+  border-bottom: solid 2px #FFF;
+}
+
+.btn-flat-bottom-border:hover {
+  background: #e6b422 !important;
+  color: #fff;
+}
+
+/* 削除ボタン */
+.btn-flat-bottom-border-delete {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 7px 10px 10px 10px;
+  text-decoration: none;
+  color: #FFF;
+  background: #d9333f;
+  transition: .4s;
+  border-radius: 10px;
+}
+
+.btn-flat-bottom-border-delete > span {
+  border-bottom: solid 2px #FFF;
+}
+
+.btn-flat-bottom-border-delete:hover {
+  background: #ec6d71;
+  color: #fff;
+}
+
+/* ジャンル新規投稿ボタン */
+.new-genre-btn {
+  background-color: #38b48b;
+  color: #fff;
+}
+
+.new-genre-btn:hover {
+  background-color: #fff;
+  border-color: #38b48b;
+  color: #38b48b;
+}

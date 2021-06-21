@@ -1,4 +1,9 @@
-<div class="container">
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-5 mx-auto py-5">
+      <h2 class="title pb-3">レビュー一覧(<%= @reviews.count %>件)</h2>
+    </div>
+  </div>
   <% @reviews.each do |review| %>
   <div class="row reviews py-3">
     <div class="col-sm-3">
@@ -31,7 +36,7 @@
       </div>
     </div>
     <div class="col-sm-3 edit-button">
-      <%= link_to '削除', admin_shop_review_path(review.shop, review), method: :delete, class:'btn btn-dark mt-5' %>
+      <%= link_to '削除', admin_shop_review_path(review.shop, review), method: :delete, class:'btn-flat-bottom-border-delete mt-5' %>
     </div>
   </div>
   <% end %>
