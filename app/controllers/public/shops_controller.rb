@@ -1,5 +1,5 @@
 class Public::ShopsController < ApplicationController
-  before_action :authenticate_user!,except: [:index, :ranking]
+  before_action :authenticate_user!,except: [:index]
 
   def new
     @shop = Shop.new
@@ -9,7 +9,7 @@ class Public::ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     if @shop.save
-      redirect_to shops_path
+      redirect_to shops_path, notice: '新しい和菓子屋が投稿されました!'
     else
       render :new
     end
@@ -26,12 +26,15 @@ class Public::ShopsController < ApplicationController
 
   def edit
     @shop = Shop.find(params[:id])
+    unless @shop.user == current_user
+      redirect_to shop_path(@shop)
+    end
   end
 
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to shop_path(@shop)
+      redirect_to shop_path(@shop), notice: '編集されました!'
     else
       render :edit
     end
@@ -40,7 +43,7 @@ class Public::ShopsController < ApplicationController
   def destroy
     shop = Shop.find(params[:id])
     shop.destroy
-    redirect_to shops_path
+    redirect_to shops_path, notice: '削除されました。またのご紹介お待ちしております!'
   end
 
   def ranking
