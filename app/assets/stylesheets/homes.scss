@@ -4,7 +4,7 @@
 
 .jumbotron {
   background-color: transparent !important;
-  background-image: imageurl('PF_top.jpg');
+  background-image: image-url('PF_top.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 1000px) {
   .jumbotron {
-    background-image: url('PF_top.jpg');
+    background-image: image-url('PF_top.jpg');
     background-repeat: repeat-y;
     background-size: contain;
     width: 100%;
