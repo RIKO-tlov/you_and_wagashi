@@ -4,7 +4,36 @@
     <div class="col-sm-5 mx-auto my-3">
       <h5 class="font-weight-bold">住所</h5>
         <p><%= @shop.address %></p>
-      <h5 class="font-weight-bold">店舗概要</h5>
+        <div id='map'></div>
+        <script>
+          let map;
+
+            function initMap() {
+              geocoder = new google.maps.Geocoder()
+
+              map = new google.maps.Map(document.getElementById('map'), {
+                // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+                center: {
+                  lat: <%=@shop.latitude%>,
+                  lng: <%=@shop.longitude%>
+                },
+                zoom: 12,
+              });
+
+              marker = new google.maps.Marker({
+                // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+                position: {
+                  lat: <%=@shop.latitude%>,
+                  lng: <%=@shop.longitude%>
+                },
+                map: map
+              });
+            }
+        </script>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap">
+        </script>
+      <h5 class="font-weight-bold mt-2">店舗概要</h5>
         <p><%= @shop.description %></p>
       <h5 class="font-weight-bold">URL</h5>
         <p><%= @shop.url %></p>
@@ -18,7 +47,12 @@
       <h5 class="font-weight-bold"><i class="fas fa-share"></i>share</h5>
         <!-- 店名付きでSNS投稿 -->
         <p><%= social_share_button_tag(@shop.name) %></p>
-      <%= render 'public/shops/buttons', shop: @shop %>
+      <div id="visits_buttons">
+        <%= render 'public/shops/visits_buttons', shop: @shop %>
+      </div>
+      <div id="wishes_buttons">
+        <%= render 'public/shops/wishes_buttons', shop: @shop %>
+      </div>
     </div>
   </div>
   <% if @reviews.present? %>
@@ -40,59 +74,33 @@
         </script>
       </div>
       <!--/総合星評価-->
-      <p class="mt-3">レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop) %></p>
-    </div>
-  </div>
-  <div class="row reviews py-3">
-    <% @reviews.each do |review| %>
-    <div class="col-sm-3">
-      <p class="posts-prof">投稿者 <%= review.user.name %> <%= review.user.sex %></p>
-      <p><%= l review.created_at, format: :short %></p>
-    </div>
-    <div class="col-sm-2">
-      <%= attachment_image_tag review, :product_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png", size:"100x100" %>
-    </div>
-    <div class="col-sm-4">
-      <p class="font-weight-bold mt-2"><%= review.product_name %></p>
-      <p><%= review.comment %></p>
-      <!--ジャンル-->
-      <div class="star_review">
-        <p class="mb-1">評価：<%= review.rate %>点</p>
-        <!--星評価-->
-        <div id="star-rate-<%= review.id %>"></div>
-        <script>
-          $('#star-rate-<%= review.id %>').raty({
-            size: 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: <%= review.rate %>
-          });
-        </script>
-        <!--/星評価-->
+      <div id='review-count'>
+        <p class="mt-3">レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop), class:"link" %></p>
       </div>
     </div>
-    <div class="col-sm-3 edit-button">
-      <% if current_user == review.user %>
-        <%= link_to edit_shop_review_path(review.shop, review), method: :get, class:'btn-circle-border mr-2 mt-5' do %>
-          <i class="far fa-edit"></i>
-        <% end %>
-        <%= link_to shop_review_path(review.shop, review), method: :delete, class:'btn-circle-border-delete mt-5' do %>
-          <i class="far fa-trash-alt"></i>
-        <% end %>
-      <% end %>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 mx-auto">
+      <%= render 'public/shops/review_index', shop: @shop%>
     </div>
-  <% end %>
+  </div>
+  <script>
+    $('.star-rate').raty({
+      size: 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+    });
+  </script>
   <% else %>
-    <div class="row">
-      <div class="col-sm-12 mx-auto">
-        <h2>レビューはありません</h2>
-        <p class="mt-3">レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop) %></p>
-      </div>
+  <div class="row">
+    <div class="col-sm-12 mx-auto">
+      <h2>レビューはありません</h2>
+      <p class="mt-3">レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop), class:"link" %></p>
     </div>
-  <% end %>
   </div>
+  <% end %>
 </div>
 

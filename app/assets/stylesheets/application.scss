@@ -27,33 +27,50 @@
 body {
   font-family: "komadori+.otf";
   src: url('/fonts/komadori+.otf') format('truetype');
-  color: #96514d;
 }
 
 header {
   background-color: #96514d;
 }
 
-a {
+header a {
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
+  margin-right: 5px;
+  margin-bottom: 4px;
+  display: inline-block;
+  transition: .3s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
-a:hover {
+header a:hover {
   text-decoration: none;
-  color: #ffffff;
+  color: #fff;
+   -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+button i {
+  color: #fff;
 }
 
 .main {
-  //background-image: image-url("japanese-paper1.jpg");
-  background-size: cover;
-  background-repeat: repeat-y;
   width: 100%;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  // padding-top: 30px;
+  // padding-bottom: 30px;
+  color: #96514d;
 }
 
 /* リストの点を消去 */
 ul {
   list-style: none;
 }
+
+// footer {
+//   background-color: #96514d;
+//   width: 100%;
+//   height: 30px;
+//   position: fixed;
+//   bottom: 0;
+// }

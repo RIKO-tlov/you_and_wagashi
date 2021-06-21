@@ -15,7 +15,7 @@ class Shop < ApplicationRecord
     wishes.where(user_id: user.id).exists?
   end
 
-  #ランキング
+  #行きたい！が多いランキング
   def self.create_all_ranks
     Shop.find(Wish.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
   end
@@ -28,4 +28,7 @@ class Shop < ApplicationRecord
   validates :bussiness_start_time, presence: true
   validates :bussiness_end_time, presence: true
   validates :telephone_number, format: { with: /\A\d{10,11}\z/ }
+
+  geocoded_by :address
+  after_validation :geocode
 end

@@ -1,3 +1,34 @@
 // Place all the styles related to the admin/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.review-btn {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0;
+  text-decoration: none;
+  color: #000000;
+}
+
+.review-btn:hover {
+  color: black;
+}
+
+.review-btn:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  top: 100%;
+  left: 0;
+  border-radius: 3px;
+  background:#000000;
+  transition: .2s;
+  color: #fff;
+}
+
+.review-btn:hover:before {
+  top: -webkit-calc(100% - 3px);
+  top: calc(100% - 3px);
+}

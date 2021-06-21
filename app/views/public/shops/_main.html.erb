@@ -3,7 +3,7 @@
     <p class="pt-5"><%= shop.kana_name %></p>
     <h2 class="title font-weight-bold pb-2"><%= shop.name %></h2>
     <% if shop.user == current_user %>
-      <%= link_to edit_shop_path(@shop) do %><i class="far fa-edit"></i>編集<% end %>
+      <%= link_to edit_shop_path(@shop), class:"link" do %><i class="far fa-edit"></i>編集<% end %>
     <% end %>
   </div>
 </div>
