@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :wish do
-    user { visit.user }
-    user { visit.user }
+    association :user
+    association :shop
   end
 end

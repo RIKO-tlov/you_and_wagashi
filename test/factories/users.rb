@@ -6,7 +6,7 @@ FactoryBot.define do
     name                            {Faker::Name.name}
     birthdate                       {"2000-01-01"}
     age                             {23}
-    sex                             {1}
+    sex                             {'女性'}
 
   end
 end
