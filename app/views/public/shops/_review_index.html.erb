@@ -3,7 +3,7 @@
     <tbody>
       <tr>
         <td style="width: 20%">
-          <p class="posts-prof">投稿者：<%= review.user.name %><%= review.user.sex %></p>
+          <p class="posts-prof"><i class="fas fa-user-circle"></i> <%= review.user.name %><%= review.user.sex %></p>
           <p><%= l review.created_at, format: :short %></p>
         </td>
         <td style="width: 10%"><%= attachment_image_tag review, :product_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png", size:"100x100", class:"mt-2" %></td>
