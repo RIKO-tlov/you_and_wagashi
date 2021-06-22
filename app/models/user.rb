@@ -16,6 +16,6 @@ class User < ApplicationRecord
   validates :name, :email, :age, :birthdate, :sex, presence: true
   validates :name, :email, uniqueness: true
 
-  enum sex: {　女性: 0, 男性: 1}
+  # enum sex: {　0: "女", 1: "男" }
 
 end
