@@ -4,6 +4,6 @@ class Admin::ShopsController < ApplicationController
   def destroy
     shop = Shop.find(params[:id])
     shop.destroy
-    redirect_to request.referer
+    redirect_to request.referer, notice: '和菓子店を１件削除しました'
   end
 end

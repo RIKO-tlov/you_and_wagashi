@@ -13,7 +13,8 @@ class User < ApplicationRecord
   has_many :wished_shops, through: :wishes, source: :shop
   attachment :profile_image
 
-  validates :name, :email, presence: true
+  validates :name, :email, :age, :birthdate, :sex, presence: true
+  validates :name, :email, uniqueness: true
 
   enum sex: {　女性: 0, 男性: 1}
 
