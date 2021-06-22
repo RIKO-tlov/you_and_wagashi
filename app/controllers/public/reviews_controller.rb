@@ -48,7 +48,8 @@ class Public::ReviewsController < ApplicationController
                                      :comment,
                                      :rate,
                                      :product_name,
-                                     :product_image)
+                                     :product_image,
+                                     :genre_id)
     end
 
 end
