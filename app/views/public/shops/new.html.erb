@@ -5,6 +5,7 @@
     </div>
   </div>
   <%= form_with model: @shop, local: true do |f| %>
+  <%= render 'public/shops/errors_message', shop: @shop %>
   <%= render 'public/shops/post_form', f: f  %>
   <%= f.submit "登録", class: "btn btn-dark btn-sm mt-3" %>
   <% end %>
