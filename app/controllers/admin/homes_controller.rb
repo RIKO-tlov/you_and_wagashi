@@ -8,6 +8,6 @@ class Admin::HomesController < ApplicationController
   def destroy
     shop = Shop.find(params[:id])
     shop.destroy
-    redirect_to shops_path
+    redirect_to shops_path, notice: '削除されました'
   end
 end
