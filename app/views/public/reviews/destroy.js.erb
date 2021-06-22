@@ -1,2 +1,2 @@
-<!--$('#review-count').html("<%#= @reviews.count %>");-->
-$('#review-table-<%=@reviews.id%>').remove();
+$('#review-count').html("<p class="mt-3">レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop), class:"link" %>");
+$('#review-table-<%=@review.id%>').remove();
