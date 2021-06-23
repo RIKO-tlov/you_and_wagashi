@@ -14,7 +14,7 @@
   width: 100%;
   height: 60vh;
   object-fit: contain; /*cantain or cover */
-  border-radius: 6px;
+  border-radius: 6px; /* containだと反応していない */
 }
 
 .card-body {

@@ -1,7 +1,7 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-3 mx-auto my-5">
-      <h2 class="title font-weight-bold pb-2">レビューを書く</h2>
+      <h2 class="title pb-3">レビューを書く</h2>
     </div>
   </div>
   <%= form_with(model:[@shop, @review], :url => {:action => :create}, local: true) do |f| %>
