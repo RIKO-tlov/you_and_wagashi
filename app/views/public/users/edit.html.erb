@@ -17,7 +17,7 @@
   <% end %>
   <div class="row">
     <div class="col-sm-5 text-center">
-      <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.png", size:'150x150', id: "preview_image" %><br />
+      <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.png", size:'150x150' %><br />
       <label for="inputImage">プロフィール画像</label>
       <%= f.attachment_field :profile_image %>
     </div>
@@ -43,13 +43,3 @@
   </div>
   <% end %>
 </div>
-<script>
-  $('#user_profile_image').on('change', function (e) {
-      console.log('test');
-      var reader = new FileReader();
-      reader.onload = function (e) {
-          $("#preview_image").attr('src', e.target.result);
-      }
-      reader.readAsDataURL(e.target.files[0]);
-  });
-</script>

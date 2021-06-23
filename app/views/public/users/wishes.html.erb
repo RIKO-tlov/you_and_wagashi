@@ -1,14 +1,12 @@
 <div class="container text-center">
   <div class="row">
-    <div class="col-sm-4 mx-auto py-5">
-      <h2 class="title">行きたい店一覧</h2>
+    <div class="col-md-4 mx-auto py-5">
+      <h2 class="title pb-3">行きたい店一覧</h2>
     </div>
   </div>
   <div class="row">
-  <div class="d-flex flex-row flex-wrap">
     <% current_user.wished_shops.each do |shop| %>
       <%= render 'public/shops/shop_index', shop: shop %>
     <% end %>
-  </div>
   </div>
 </div>
