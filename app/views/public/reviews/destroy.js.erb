@@ -1,3 +1,3 @@
-<!--$('#average-rating').html('<%#= render 'public/shops/review_total_rate', reviews: @reviews %>');-->
+$('#average-rating').html("<%= j(render 'public/shops/review_total_rate', reviews: @reviews) %>");
 $('#review-count').html('<p class="mt-3">レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop), class:"link" %>');
 $('#review-table-<%=@review.id%>').remove();
