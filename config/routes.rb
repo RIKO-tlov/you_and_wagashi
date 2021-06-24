@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   #ユーザー側
   scope module: :public do
     root to: 'homes#top'
+    post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
     get "/about" => "homes#about", as: "about"
     get "/ranking" => "shops#ranking", as: "ranking"
     resources :users, only: [:show, :edit, :update, :destroy] do
