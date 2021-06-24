@@ -60,7 +60,7 @@
     <div class="col-sm-12 mx-auto my-5">
       <!--総合星評価-->
       <div id="average-rating">
-        <%= render 'public/shops/review_total_rate', reviews: @reviews %>
+        <%= render partial: 'public/shops/review_total_rate', locals: { reviews: @reviews } %>
       </div>
         <script>
           $('.average-rating').raty({
