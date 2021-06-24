@@ -37,7 +37,7 @@ class Public::ReviewsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @review = Review.find(params[:id])
     @review.destroy
-    @reviews = @shop.reviews.all
+    @reviews = @shop.reviews
 
   end
 

@@ -1,0 +1,2 @@
+<h4 class="mb-3">総評価：<%= reviews.average(:rate).to_f.round(1) %>点</h4>
+<div class="average-rating" data-score="<%=reviews.average(:rate).to_f.round(1)%>"></div>

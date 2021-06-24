@@ -16,7 +16,7 @@
           <div class="star_review">
             <p>評価：<%= review.rate %>点</p>
             <!--星評価-->
-            <div class="star-rate" data-score="<%=review.rate%>"></div>
+            <div class="star-rate" data-score="<%= review.rate %>"></div>
             <!--/星評価-->
           </div>
           <% if current_user == review.user %>
