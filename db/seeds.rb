@@ -7,6 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.new(
-   name: 'testtest2',
+   name: 'testtest',
    password: 'testtest',
 ).save(validate: false)
+
+Genre.create!([
+  { name: '餅菓子'},
+  { name: '蒸し菓子'},
+  { name: '焼き菓子'},
+  { name: '流し菓子'},
+  { name: '練り菓子'},
+  { name: 'おか菓子'},
+  { name: '干菓子'},
+  { name: 'その他'},
+])
