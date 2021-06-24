@@ -10,7 +10,7 @@ RSpec.describe Wish, type: :model do
 
     context 'Shopモデルとの関係' do
       it '1:Nとなっている' do
-        expect(wish.reflect_on_association(:shop).macro).to eq :belongs_to
+        expect(Wish.reflect_on_association(:shop).macro).to eq :belongs_to
       end
     end
   end

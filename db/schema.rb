@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_06_20_012631) do
     t.string "profile_image_id"
     t.integer "age"
     t.date "birthdate"
-    t.integer "sex"
+    t.string "sex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

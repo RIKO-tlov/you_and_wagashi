@@ -9,8 +9,8 @@
         <td style="width: 10%"><%= attachment_image_tag review, :product_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.png", size:"100x100", class:"mt-2" %></td>
         <td style="width: 40%">
           <p class="font-weight-bold"><%= review.product_name %></p>
+          <p><i class="fas fa-tag"></i> <%= review.genre.name %></p>
           <p><%= review.comment %></p>
-          <!--ジャンル-->
         </td>
         <td style="width: 40%">
           <div class="star_review">

@@ -1,15 +1,11 @@
-<div class="col-md-4">
-  <div class="card-deck mb-5 mr-2">
-  <div class="card">
-    <div class ="shop-image">
-      <p class="img card-img-top"><%= attachment_image_tag shop, :shop_image, format: "jpeg", fallback: "no_image.png", class:"card-image" %></p>
-    </div>
+<div class="col-md-6">
+  <div class="card border-0 mb-5">
+    <p class="img card-img-top"><%= attachment_image_tag shop, :shop_image, format: "jpeg", fallback: "no_image.png", class:"card-image" %></p>
     <div class="card-body">
       <%= shop.kana_name %>
       <h5 class="card-title font-weight-bold"><%= shop.name %></h5>
       <p class="shop-description"><%= shop.description %></p>
       <%= link_to "more", shop_path(shop), class: "btn btn-border-bottom font-weight-bold mt-3" %>
     </div>
-  </div>
   </div>
 </div>
