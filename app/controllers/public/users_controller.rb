@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :ensure_normal_user, only: :update
   before_action :authenticate_user!
 
   def show
@@ -23,6 +24,13 @@ class Public::UsersController < ApplicationController
 
   def reviews
     @shops = current_user.reviewed_shops.distinct #重複したレコードを削除
+  end
+
+  #ゲストユーザ更新不可
+  def ensure_normal_user
+    if current_user.email == 'guest@example.com'
+      redirect_to root_path, notice: '※ゲストユーザーは更新できません'
+    end
   end
 
   private
