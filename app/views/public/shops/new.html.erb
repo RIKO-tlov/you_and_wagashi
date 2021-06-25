@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container shadow-lg text-center my-3">
   <div class="row">
     <div class="col-sm-3 mx-auto py-5">
       <h2 class="title pb-3">新規登録</h2>
@@ -7,7 +7,7 @@
   <%= form_with model: @shop, local: true do |f| %>
   <%= render 'public/shops/errors_message', shop: @shop %>
   <%= render 'public/shops/post_form', f: f  %>
-  <%= f.submit "登録", class: "btn btn-dark btn-sm my-3" %>
+  <%= f.submit "登録", class: "btn btn-dark col-3 my-3 mx-auto" %>
   <% end %>
 </div>
 

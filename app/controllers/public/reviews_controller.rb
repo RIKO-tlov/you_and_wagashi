@@ -10,7 +10,7 @@ class Public::ReviewsController < ApplicationController
     @review = current_user.reviews.new(review_params)
     @review.shop_id = @shop.id
     if @review.save
-      redirect_to shop_path(@shop), notice: 'レビューを投稿しました!'
+      redirect_to shop_path(@shop), alert: 'レビューを投稿しました!'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Public::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      redirect_to shop_path(params[:shop_id]), notice: 'レビューを編集しました!'
+      redirect_to shop_path(params[:shop_id]), alert: 'レビューを編集しました!'
     else
       render :edit
     end
