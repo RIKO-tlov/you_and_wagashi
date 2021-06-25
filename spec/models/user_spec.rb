@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
     end
 
     it "生年月日がなければ登録できない" do
-     user.birthdate = ''
+      user.birthdate = ''
       expect(user.valid?).to eq(false)
     end
 
@@ -53,11 +53,11 @@ RSpec.describe User, type: :model do
     end
 
     it "パスワードが暗号化されているか" do
-      expect(user.encrypted_password).to_not eq 'password'
+      expect(user.encrypted_password).not_to eq 'password'
     end
 
     it "password_confirmationとpasswordが異なる場合保存できない" do
-      expect(FactoryBot.build(:user,password:"password",password_confirmation: "passward")).to_not be_valid
+      expect(FactoryBot.build(:user, password: "password", password_confirmation: "passward")).not_to be_valid
     end
   end
 
@@ -86,5 +86,4 @@ RSpec.describe User, type: :model do
       end
     end
   end
-
 end

@@ -25,11 +25,11 @@ RSpec.describe User, type: :system do
     end
     it '自身のユーザ編集画面に遷移できる' do
       visit edit_user_path(user)
-      expect(current_path).to eq('/users/' + user.id.to_s + '/edit' )
+      expect(current_path).to eq('/users/' + user.id.to_s + '/edit')
     end
     it '他人の編集画面には遷移できない' do
       visit edit_user_path(other_user)
-      expect(current_path).to eq('/users/' + user.id.to_s )
+      expect(current_path).to eq('/users/' + user.id.to_s)
     end
   end
 end

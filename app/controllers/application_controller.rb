@@ -3,12 +3,13 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    def configure_permitted_parameters
-      #デフォルトのauthentication_keysを:nameに変更したため、keysに:emailを追加
-      devise_parameter_sanitizer.permit(:sign_up,keys:[:email,
-                                                       :age,
-                                                       :sex,
-                                                       :birthdate])
-    end
-
+  def configure_permitted_parameters
+    # デフォルトのauthentication_keysを:nameに変更したため、keysに:emailを追加
+    devise_parameter_sanitizer.permit(:sign_up, keys: [
+      :email,
+      :age,
+      :sex,
+      :birthdate,
+    ])
+  end
 end

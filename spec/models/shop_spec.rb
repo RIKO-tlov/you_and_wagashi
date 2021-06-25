@@ -5,40 +5,40 @@ RSpec.describe Shop, type: :model do
     let(:user) { create(:user)                  }
     let(:shop) { build(:shop, user_id: user.id) }
 
-      it 'nameが空欄でないこと' do
-        shop.name = ''
-        expect(shop.valid?).to eq(false)
-      end
+    it 'nameが空欄でないこと' do
+      shop.name = ''
+      expect(shop.valid?).to eq(false)
+    end
 
-      it 'kana_nameが空欄でないこと' do
-        shop.kana_name = ''
-        expect(shop.valid?).to eq(false)
-      end
+    it 'kana_nameが空欄でないこと' do
+      shop.kana_name = ''
+      expect(shop.valid?).to eq(false)
+    end
 
-      it 'descriptionが200文字以下であること' do
-        shop.description = Faker::Lorem.paragraphs(number:201)
-        expect(shop.valid?).to eq(false)
-      end
+    it 'descriptionが200文字以下であること' do
+      shop.description = Faker::Lorem.paragraphs(number: 201)
+      expect(shop.valid?).to eq(false)
+    end
 
-      it 'postal_codeが空欄でないこと' do
-        shop.postal_code = ''
-        expect(shop.valid?).to eq(false)
-      end
+    it 'postal_codeが空欄でないこと' do
+      shop.postal_code = ''
+      expect(shop.valid?).to eq(false)
+    end
 
-      it 'bussiness_start_timeが空欄でないこと' do
-        shop.bussiness_start_time = ''
-        expect(shop.valid?).to eq(false)
-      end
+    it 'bussiness_start_timeが空欄でないこと' do
+      shop.bussiness_start_time = ''
+      expect(shop.valid?).to eq(false)
+    end
 
-      it 'bussiness_end_timeが空欄でないこと' do
-        shop.bussiness_end_time = ''
-        expect(shop.valid?).to eq(false)
-      end
+    it 'bussiness_end_timeが空欄でないこと' do
+      shop.bussiness_end_time = ''
+      expect(shop.valid?).to eq(false)
+    end
 
-      it 'addressが空欄でないこと' do
-        shop.address = ''
-        expect(shop.valid?).to eq(false)
-      end
+    it 'addressが空欄でないこと' do
+      shop.address = ''
+      expect(shop.valid?).to eq(false)
+    end
 
     context 'telephone_numberカラム' do
       it 'telephone_numberが10桁未満の場合' do

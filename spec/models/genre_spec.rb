@@ -6,7 +6,7 @@ RSpec.describe Genre, type: :model do
 
     it 'nameが空欄でないこと' do
       genre.name = ''
-      expect(genre).to_not be_valid
+      expect(genre).not_to be_valid
     end
   end
 end

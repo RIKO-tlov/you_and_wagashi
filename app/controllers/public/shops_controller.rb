@@ -1,5 +1,5 @@
 class Public::ShopsController < ApplicationController
-  before_action :authenticate_user!,except: [:index, :ranking]
+  before_action :authenticate_user!, except: [:index, :ranking]
 
   def new
     @shop = Shop.new

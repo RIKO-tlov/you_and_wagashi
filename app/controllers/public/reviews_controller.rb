@@ -1,5 +1,4 @@
 class Public::ReviewsController < ApplicationController
-
   def new
     @review = Review.new
     @shop = Shop.find(params[:shop_id])
@@ -38,18 +37,17 @@ class Public::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
     @reviews = @shop.reviews
-
   end
 
   private
-    def review_params
-      params.require(:review).permit(:shop_id,
-                                     :user_id,
-                                     :comment,
-                                     :rate,
-                                     :product_name,
-                                     :product_image,
-                                     :genre_id)
-    end
 
+  def review_params
+    params.require(:review).permit(:shop_id,
+                                   :user_id,
+                                   :comment,
+                                   :rate,
+                                   :product_name,
+                                   :product_image,
+                                   :genre_id)
+  end
 end
