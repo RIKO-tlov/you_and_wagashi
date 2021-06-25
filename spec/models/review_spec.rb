@@ -6,7 +6,6 @@ RSpec.describe Review, type: :model do
     let(:shop) { build(:shop, user_id: user.id)                       }
     let(:review) { build(:review, shop_id: shop.id, user_id: user.id) }
 
-
     it 'product_nameが空欄でないこと' do
       review.product_name = ''
       expect(review.valid?).to eq(false)
@@ -19,7 +18,7 @@ RSpec.describe Review, type: :model do
       end
 
       it '200文字以下であること' do
-        review.comment = Faker::Lorem.paragraphs(number:201)
+        review.comment = Faker::Lorem.paragraphs(number: 201)
         expect(review.valid?).to eq(false)
       end
     end
@@ -50,5 +49,4 @@ RSpec.describe Review, type: :model do
       end
     end
   end
-
 end

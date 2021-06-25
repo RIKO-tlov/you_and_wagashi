@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 describe 'ユーザログイン後のテスト' do
-    let(:user) { create(:user) }
+  let(:user) { create(:user) }
 
-    before do
-      visit new_user_session_path
-      fill_in 'user[name]', with: user.name
-      fill_in 'user[password]', with: user.password
-      click_button 'ログイン'
-    end
+  before do
+    visit new_user_session_path
+    fill_in 'user[name]', with: user.name
+    fill_in 'user[password]', with: user.password
+    click_button 'ログイン'
+  end
 
   describe 'ヘッダーのテスト: ログインしている場合' do
     context 'リンクの内容を確認: ※logoutはbefore_log_inでテスト済み' do

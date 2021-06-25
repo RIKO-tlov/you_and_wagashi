@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
-
   devise_for :admins, controllers: {
-    sessions: 'admin/sessions'
+    sessions: 'admin/sessions',
   }
 
   devise_for :users, :controllers => {
     sessions: "public/sessions",
-    registrations: "public/registrations"
+    registrations: "public/registrations",
   }
 
-  #管理者側
+  # 管理者側
   namespace :admin do
     root to: "homes#top"
     resources :shops, only: [:destroy] do
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
 
-  #ユーザー側
+  # ユーザー側
   scope module: :public do
     root to: 'homes#top'
     post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
@@ -37,5 +36,4 @@ Rails.application.routes.draw do
       resource :wishes, only: [:create, :destroy]
     end
   end
-
 end
