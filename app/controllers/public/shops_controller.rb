@@ -9,7 +9,7 @@ class Public::ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     if @shop.save
-      redirect_to shops_path, notice: '新しい和菓子屋が投稿されました!'
+      redirect_to shops_path, alert: '新しい和菓子屋が投稿されました!'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Public::ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to shop_path(@shop), notice: '編集されました!'
+      redirect_to shop_path(@shop), alert: '編集されました!'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class Public::ShopsController < ApplicationController
   def destroy
     shop = Shop.find(params[:id])
     shop.destroy
-    redirect_to shops_path, notice: '削除されました。またのご紹介お待ちしております!'
+    redirect_to shops_path, alert: '削除されました。またのご紹介お待ちしております!'
   end
 
   def ranking

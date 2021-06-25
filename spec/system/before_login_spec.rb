@@ -51,10 +51,6 @@ describe 'ヘッダーのテスト: ログインしていない場合' do
     it 'タイトルが表示される' do
       expect(page).to have_content 'あなたと和菓子と'
     end
-    # it 'Homeリンクが表示される: 左上から1番目のリンクが「Home」である' do
-    #   home_link = find_all('a')[1].native.inner_text
-    #   expect(home_link).to match(/home/i)
-    # end
     it 'sign upリンクが表示される: 左上から1番目のリンクが「新規登録」である' do
       signup_link = find_all('a')[1].native.inner_text
       expect(signup_link).to match(/新規登録/i)
@@ -173,7 +169,6 @@ describe 'ユーザ新規登録のテスト' do
 end
 
 describe 'ユーザログイン' do
-  let(:user) { create(:user) }
 
   before do
     visit new_user_session_path
@@ -236,10 +231,6 @@ describe 'ユーザログイン' do
       it 'タイトルが表示される' do
         expect(page).to have_content 'あなたと和菓子と'
       end
-      # it 'Homeリンクが表示される: 左上から1番目のリンクが「Home」である' do
-      #   home_link = find_all('a')[1].native.inner_text
-      #   expect(home_link).to match(/home/i)
-      # end
       it 'Shop indexリンクが表示される: 左上から1番目のリンクが「お店一覧」である' do
         shop_index_link = find_all('a')[1].native.inner_text
         expect(shop_index_link).to match(/お店一覧/i)
@@ -266,6 +257,6 @@ describe 'ユーザログイン' do
       end
     end
   end
-  
-  
+
+
 

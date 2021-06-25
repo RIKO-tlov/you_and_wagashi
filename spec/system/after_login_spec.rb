@@ -1,4 +1,7 @@
+require 'rails_helper'
+
 describe 'ユーザログイン後のテスト' do
+    let(:user) { create(:user) }
 
     before do
       visit new_user_session_path
