@@ -29,7 +29,7 @@ body {
   width: 100%;
   font-family: "komadori+.otf";
   src: url('/fonts/komadori+.otf') format('truetype');
-  // font-family: 'MS PMincho', "YuMincho", "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+  font-family: 'MS PMincho', "YuMincho", "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
 }
 
 header {
@@ -64,8 +64,6 @@ button i {
 
 .main {
   width: 100%;
-  // padding-top: 30px;
-  // padding-bottom: 30px;
   color: #96514d;
 }
 
@@ -78,3 +76,4 @@ ul {
 .notice {
   color: #68be8d;
 }
+

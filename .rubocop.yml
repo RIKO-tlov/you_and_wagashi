@@ -13,3 +13,8 @@ AllCops:
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
+    - 'spec/spec_helper.rb'
+    - 'app/controllers/public/homes_controller.rb'
+
+LineLength:
+  Max: 150

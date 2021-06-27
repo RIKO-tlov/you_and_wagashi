@@ -2,7 +2,8 @@ class Admin::ReviewsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @reviews = Review.all
+    @shop = Shop.find(params[:shop_id])
+    @reviews = @shop.reviews
   end
 
   def destroy
