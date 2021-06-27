@@ -5,17 +5,17 @@ class Shop < ApplicationRecord
   has_many :wishes, dependent: :destroy
   attachment :shop_image
 
-  #行ったボタンを押したかどうか
+  # 行ったボタンを押したかどうか
   def visited_by?(user)
     visits.where(user_id: user.id).exists?
   end
 
-  #行きたいボタンを押したかどうか
+  # 行きたいボタンを押したかどうか
   def wished_by?(user)
     wishes.where(user_id: user.id).exists?
   end
 
-  #行きたい！が多いランキング
+  # 行きたい！が多いランキング
   def self.create_all_ranks
     Shop.find(Wish.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
   end

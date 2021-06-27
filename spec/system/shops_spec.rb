@@ -3,9 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :system do
   let(:user) { create(:user) }
   let!(:other_user) { create(:user) }
-  let!(:shop) { create(:shop,  user: user) }
-  let!(:other_shop) { create(:shop,  user: other_user) }
-
+  let!(:shop) { create(:shop, user: user) }
+  let!(:other_shop) { create(:shop, user: other_user) }
 
   before do
     visit new_user_session_path
