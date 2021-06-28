@@ -1,6 +1,6 @@
 # :cherry_blossom:あなたと和菓子と
 [トップ画面]
-<img src="" width="500px">
+<img src="https://user-images.githubusercontent.com/79884989/123546722-be248f80-d798-11eb-8f31-dd685df93076.png">
 
 ## URL
 http://youandwagashi.com/
@@ -35,24 +35,40 @@ http://youandwagashi.com/
 ## 実装機能一覧
 - ユーザ登録、ログイン機能(devise)
 - 投稿機能
-    - 画像投稿機能(refile)
-    - 投稿住所位置情報機能(geocoder)
-- いいね機能
-    -行った、行ってみたいボタン(Ajax)
-        -ランキング機能
-- レビュー機能(raty.js)
+- 画像投稿
+- 投稿住所位置情報
+- 行った、行ってみたいボタン
+- ランキング機能
+- レビュー機能
 - SNSシェアボタン
 - ジャンル機能
 
+### チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1gxOnxhJLKD60gjl6euRBWOTPY-ar_ORSNn8YSQmFSRs/edit?usp=sharing
+
+### テスト
+- 単体テスト（モデル）
+
+### Gem
+- devise
+- refile
+- refile-mini_magick
+- kaminari '1.2.1'
+- bootstrap'4.5'
+- jquery-rails
+- font-awesome-sass '5.13'
+- social-share-button
+- rails-i18n
+- devise-i18n
+- geocoder
+- rubocop-airbnb
 
 ## 設計書
 ### ER図
 <img src="https://user-images.githubusercontent.com/79884989/120259195-72ccad80-c2ce-11eb-82ca-ada6227d898f.jpg" width="500px">
 
-
-
-## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1gxOnxhJLKD60gjl6euRBWOTPY-ar_ORSNn8YSQmFSRs/edit?usp=sharing
+### UI Flow
+<a href="https://drive.google.com/file/d/10ssUe_twl4rnQy-rQ9bSkhb0-CIQtzBM/view?usp=sharing">こちらをクリック</a>
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -61,4 +77,10 @@ https://docs.google.com/spreadsheets/d/1gxOnxhJLKD60gjl6euRBWOTPY-ar_ORSNn8YSQmF
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
+## 本番環境
+- AWS (EC2、RDS for MySQL、Route53、CloudWatch)
+- MySQL2
+- Nginx、 Puma
+
 ## 使用素材
+- PHOTO AC
