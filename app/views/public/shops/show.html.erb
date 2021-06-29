@@ -62,17 +62,21 @@
       <div id="average-rating">
         <%= render partial: 'public/shops/review_total_rate', locals: { reviews: @reviews } %>
       </div>
-        <script>
-          $('.average-rating').raty({
-            size: 36,
-            starOff: '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: <%= @reviews.average(:rate) %>,
-          });
-        </script>
+      <script>
+      function average_rating(){
+        console.log('average_rating');
+        $('.average-rating').raty({
+          size: 36,
+          starOff: '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= @reviews.average(:rate) %>,
+        });
+      }
+      average_rating();
+      </script>
 
       <!--/総合星評価-->
       <div id='review-count'>
