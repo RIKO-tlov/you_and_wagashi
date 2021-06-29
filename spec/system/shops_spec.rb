@@ -29,7 +29,7 @@ RSpec.describe Shop, type: :system do
       it '自分の投稿と他人の投稿の説明文のみが表示される' do
         expect(page).to have_content shop.description
         expect(page).to have_content other_shop.description
-      end
+     end
     end
   end
 end
