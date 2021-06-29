@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :system do
+RSpec.describe Shop, type: :system do
   let(:user) { create(:user) }
-  let!(:other_user) { create(:user) }
-  let!(:shop) { create(:shop, user: user) }
-  let!(:other_shop) { create(:shop, user: other_user) }
+  let(:other_user) { create(:user) }
+  let(:shop) { create(:shop, user: user) }
+  let(:other_shop) { create(:shop, user: other_user) }
 
   before do
     visit new_user_session_path
@@ -29,7 +29,7 @@ RSpec.describe User, type: :system do
       it '自分の投稿と他人の投稿の説明文のみが表示される' do
         expect(page).to have_content shop.description
         expect(page).to have_content other_shop.description
-      end
+     end
     end
   end
 end
