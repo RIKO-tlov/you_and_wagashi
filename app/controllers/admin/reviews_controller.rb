@@ -11,4 +11,5 @@ class Admin::ReviewsController < ApplicationController
     review.destroy
     redirect_to request.referrer, notice: 'レビューを１件削除しました'
   end
+  
 end

@@ -17,3 +17,5 @@
 //= require jquery.raty.js
 //= require_tree .
 //= require social-share-button
+//= require chartkick
+//= require Chart.bundle

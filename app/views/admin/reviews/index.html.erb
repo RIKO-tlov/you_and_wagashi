@@ -1,6 +1,9 @@
 <div class="container text-center">
   <div class="row">
-    <p>レビューコメントの感情分析スコア</p>
+    <div class="col-sm-12">
+      <p>レビューコメントの感情分析スコア</p>
+      <%= pie_chart Review.group(:score).count %>
+    </div>
   </div>
   <div class="row">
     <div class="col-sm-5 mx-auto py-5">
