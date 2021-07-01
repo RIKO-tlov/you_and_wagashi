@@ -14,11 +14,12 @@ class Shop < ApplicationRecord
   def wished_by?(user)
     wishes.where(user_id: user.id).exists?
   end
-
-  # 行きたい！が多いランキング
-  def self.create_all_ranks
-    Shop.find(Wish.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
+  
+  #行きたい順週間ランキング
+  def self.week_ranks
+    Shop.joins(:wishes).where(wishes: { created_at: Date.today.beginning_of_week..Date.today.end_of_week }).group(:id).order("count(shops.id) desc").limit(3)
   end
+  
 
   validates :name, :kana_name, :postal_code, :address, presence: true
   validates :kana_name, format: { with: /\p{hiragana}/ }
