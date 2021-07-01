@@ -47,8 +47,9 @@ class Public::ShopsController < ApplicationController
   end
 
   def ranking
-    @all_ranks = Shop.create_all_ranks
+    @ranks = Shop.week_ranks
   end
+
 
   private
 
