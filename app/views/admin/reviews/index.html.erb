@@ -17,6 +17,7 @@
     <div class="col-sm-4">
       <p class="font-weight-bold mt-2"><%= review.product_name %></p>
       <p><%= review.comment %></p>
+      <span class="sentiment-score">本文の感情分析スコア<%= review.score %></span>
       <!--ジャンル-->
       <div class="star_review">
         <p class="mb-1">評価：<%= review.rate %>点</p>
