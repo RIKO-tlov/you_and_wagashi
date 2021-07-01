@@ -3,7 +3,7 @@ class Admin::ReviewsController < ApplicationController
 
   def index
     @shop = Shop.find(params[:shop_id])
-    @reviews = @shop.reviews
+    @reviews = @shop.reviews.order(created_at: :desc)
   end
 
   def destroy
