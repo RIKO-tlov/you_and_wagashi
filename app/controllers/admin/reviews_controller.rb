@@ -5,23 +5,24 @@ class Admin::ReviewsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @reviews = @shop.reviews.order(created_at: :desc)
     #チャート用
-    @review = @shop.reviews.pluck(:score)
-    @aggregate = aggregateScore(@review)
+    @score = @shop.reviews.pluck(:score)
+    @aggregate = aggregateScore(@score)
   end
 
   def aggregateScore(array)
-    score = @reviews
+    require 'bigdecimal'
     result = [["ポジティブ",0],["ニュートラル",0],["ネガティブ",0]]
-      if score == (0.3..1.0)
-        result[0]
-      elsif score == (-0.3..0.3)
-        result[1]
+    array.each do |i|
+      if BigDecimal(i.to_s).floor(1).to_f >= 0.3
+        result[0][1] +=1
+      elsif BigDecimal(i.to_s).floor(1).to_f >= -0.3
+        result[1][1] +=1
       else
-        result[2]
+        result[2][1] +=1
       end
+    end
     return result
   end
-  #ここまで
 
 
   def destroy
