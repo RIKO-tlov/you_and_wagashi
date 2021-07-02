@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
       <p>レビューコメントの感情分析スコア</p>
-      <%= pie_chart Review.group(:score).count %>
+      <%= pie_chart @aggregate, donut: true %>
     </div>
   </div>
   <div class="row">
