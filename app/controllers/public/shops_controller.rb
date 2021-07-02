@@ -16,12 +16,12 @@ class Public::ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.all
+    @shops = Shop.order(created_at: :desc)
   end
 
   def show
     @shop = Shop.find(params[:id])
-    @reviews = @shop.reviews
+    @reviews = @shop.reviews.order(created_at: :desc)
   end
 
   def edit
