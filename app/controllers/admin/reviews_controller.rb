@@ -4,7 +4,7 @@ class Admin::ReviewsController < ApplicationController
   def index
     @shop = Shop.find(params[:shop_id])
     @reviews = @shop.reviews.order(created_at: :desc)
-    #チャート用
+    #グラフ
     @score = @shop.reviews.pluck(:score)
     @aggregate = aggregateScore(@score)
   end
@@ -23,7 +23,6 @@ class Admin::ReviewsController < ApplicationController
     end
     return result
   end
-
 
   def destroy
     review = Review.find_by(id: params[:id], shop_id: params[:shop_id])
