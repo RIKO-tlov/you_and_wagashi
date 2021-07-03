@@ -8,7 +8,7 @@ class Public::ReviewsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @review = current_user.reviews.new(review_params)
     @review.shop_id = @shop.id
-    @review.score = Language.get_data(review_params[:comment]) 
+    @review.score = Language.get_data(review_params[:comment]) #APIでスコアをcreate
     if @review.save
       redirect_to shop_path(@shop), alert: 'レビューを投稿しました!'
     else
