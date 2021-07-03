@@ -13,9 +13,9 @@ class Admin::ReviewsController < ApplicationController
     require 'bigdecimal'
     result = [["ポジティブ",0],["ニュートラル",0],["ネガティブ",0]]
     array.each do |i|
-      if BigDecimal(i.to_s).floor(1).to_f >= 0.3
+      if BigDecimal(i.to_s.to_d).floor(1).to_f >= 0.3
         result[0][1] +=1
-      elsif BigDecimal(i.to_s).floor(1).to_f >= -0.3
+      elsif BigDecimal(i.to_s.to_d).floor(1).to_f >= -0.3
         result[1][1] +=1
       else
         result[2][1] +=1
