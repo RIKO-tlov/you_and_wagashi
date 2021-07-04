@@ -42,6 +42,12 @@
                 <li class="nav-item">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                 </li>
+                <li>
+                  <%= search_form_for @q, url: search_shops_path do |f| %>
+                    <%= f.search_field :name_cont, placeholder: '店名検索', class:"ml-2 search_container" %>
+                    <%= f.submit '検索', class:"search_container-btn" %>
+                  <% end %>
+                </li>
               <% elsif admin_signed_in? %>
                 <li class="nav-item">
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
@@ -70,6 +76,12 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to "お店一覧", shops_path %>
+                </li>
+                <li>
+                  <%= search_form_for @q, url: search_shops_path do |f| %>
+                    <%= f.search_field :name_cont, placeholder: '店名検索', class:"ml-2 search_container" %>
+                    <%= f.submit '検索', class:"search_container-btn" %>
+                  <% end %>
                 </li>
               <% end %>
             </ul>

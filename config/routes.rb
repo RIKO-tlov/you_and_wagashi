@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       resources :reviews, except: [:index, :show]
       resource :visits, only: [:create, :destroy]
       resource :wishes, only: [:create, :destroy]
+      get :search, on: :collection
     end
   end
 end

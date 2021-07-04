@@ -77,3 +77,21 @@ ul {
   color: #68be8d;
 }
 
+/* 検索フォーム */
+.search_container{
+  border: 2px solid #96514d;
+  padding: 3px 10px;
+  border-radius: 4px;
+  height: 2.0em;
+  width: 110px;
+  overflow: hidden;
+}
+.search_container-btn{
+  cursor: pointer;
+  border: none;
+  background: #fff;
+  color: #96514d;
+  border-radius: 3px;
+  width: 3.5em;
+  outline : none;
+}
