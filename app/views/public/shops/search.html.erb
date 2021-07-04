@@ -1,0 +1,14 @@
+<div class="container shadow-lg text-center mt-3">
+  <div class="row">
+    <div class="col-md-5 mx-auto py-5">
+    <p class="notice"><%= flash[:alert] %></p>
+      <h2 class="title pb-3">店舗検索結果 (<%= @results.count %>件)</h2>
+    </div>
+  </div>
+
+  <div class="row card-index">
+    <% @results.each do |shop| %>
+      <%= render 'public/shops/shop_index', shop: shop %>
+    <% end %>
+  </div>
+</div>

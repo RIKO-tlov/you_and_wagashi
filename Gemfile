@@ -80,3 +80,4 @@ gem 'devise-i18n'
 gem 'geocoder'
 gem 'rubocop-airbnb'
 gem "chartkick"
+gem 'ransack'
