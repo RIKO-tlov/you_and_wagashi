@@ -1,5 +1,5 @@
 class Public::ShopsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :ranking]
+  before_action :authenticate_user!, except: [:index, :ranking, :search]
 
   def new
     @shop = Shop.new
@@ -48,6 +48,11 @@ class Public::ShopsController < ApplicationController
 
   def ranking
     @ranks = Shop.week_ranks
+  end
+
+  def search
+    @results = @q.result
+    #resultメソッドでActiveRecord_Relationのオブジェクトに変換
   end
 
 

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_q
 
   protected
 
@@ -11,5 +12,9 @@ class ApplicationController < ActionController::Base
       :sex,
       :birthdate,
     ])
+  end
+
+  def set_q
+    @q = Shop.ransack(params[:q])
   end
 end
