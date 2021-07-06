@@ -20,6 +20,11 @@ class Shop < ApplicationRecord
     Shop.joins(:wishes).where(wishes: { created_at: Date.today.beginning_of_week..Date.today.end_of_week }).group(:id).order("count(shops.id) desc").limit(3)
   end
 
+  #いいね数ランキング
+  def self.all_ranks
+    @all_ranks = Shop.find(Wish.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
+  end
+
   validates :name, :kana_name, :postal_code, :address, presence: true
   validates :kana_name, format: { with: /\p{hiragana}/ }
   validates :postal_code, format: { with: /\A\d{7}\z/ }

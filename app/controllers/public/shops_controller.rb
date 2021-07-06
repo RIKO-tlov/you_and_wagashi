@@ -47,7 +47,8 @@ class Public::ShopsController < ApplicationController
   end
 
   def ranking
-    @ranks = Shop.week_ranks
+    @week_ranks = Shop.week_ranks
+    @ranks = Shop.all_ranks
   end
 
   def search
