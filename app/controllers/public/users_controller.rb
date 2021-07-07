@@ -4,6 +4,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @shops = current_user.reviewed_shops.distinct
   end
 
   def edit
