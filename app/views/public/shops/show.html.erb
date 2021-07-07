@@ -36,7 +36,7 @@
       <h5 class="font-weight-bold mt-2">店舗概要</h5>
         <p><%= @shop.description %></p>
       <h5 class="font-weight-bold">URL</h5>
-        <p><%= @shop.url %></p>
+        <p><%= Rinku.auto_link(@shop.url, :all, 'target="_blank"').html_safe %></p>
       <h5 class="font-weight-bold">定休日</h5>
           <p><%= @shop.holiday %></p>
       <h5 class="font-weight-bold">営業時間</h5>
