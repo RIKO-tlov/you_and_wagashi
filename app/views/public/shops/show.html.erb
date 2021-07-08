@@ -42,13 +42,6 @@
             <p><%= @shop.telephone_number %></p>
           </td>
         </tr>
-        <tr>
-          <th><i class="fas fa-share"></i>share</th>
-          <td>
-            <!-- 店名付きでSNS投稿 -->
-            <p><%= social_share_button_tag(@shop.name) %></p>
-          </td>
-        </tr>
       </tbody>
     </table>
     </div>
@@ -82,14 +75,21 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap">
   </script>
-  
-      <div id="visits_buttons">
+
+  <div class="row my-5">
+    <div class="col-sm-5 offset-md-1 mb-3">
+      <%= social_share_button_tag(@shop.name) %>
+    </div>
+    <div class="col-sm-5 d-flex justify-content-center">
+      <div id="visits_buttons", class="mr-3">
         <%= render 'public/shops/visits_buttons', shop: @shop %>
       </div>
       <div id="wishes_buttons">
         <%= render 'public/shops/wishes_buttons', shop: @shop %>
       </div>
-      
+    </div>
+  </div>
+
   <% if @reviews.present? %>
   <div class="row">
     <div class="col-sm-12 mx-auto my-5">
