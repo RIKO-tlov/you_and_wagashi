@@ -219,6 +219,15 @@ a:hover {
   text-decoration: none !important;
 }
 
+.nav-link {
+  color: #96514d;
+}
+
+.nav-link:hover {
+  color: #96514d;
+}
+
+
 /* レビューテーブルレスポンシブ */
 @media screen and (max-width: 1000px) {
   table {
