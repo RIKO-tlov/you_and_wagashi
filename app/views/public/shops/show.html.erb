@@ -1,53 +1,87 @@
 <div class="container shadow-lg text-center mt-3">
 <%= render 'public/shops/main', shop: @shop %>
   <div class="row">
-    <div class="col-sm-5 mx-auto my-3">
-      <h5 class="font-weight-bold">住所</h5>
-        <p><%= @shop.address %></p>
-        <div id='map'></div>
-        <script>
-          let map;
+    <div class="col-sm-12 col-md-8 mx-auto my-3">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th style="width: 20%">店舗概要</th>
+          <td style="width: 80%">
+            <p class="text-wrap"><%= @shop.description %></p>
+          </td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td>
+            <p><%= @shop.address %></p>
+            <div id='map'></div>
+          </td>
+        </tr>
+        <tr>
+          <th>URL</th>
+          <td>
+            <p><%= Rinku.auto_link(@shop.url, :all, 'target="_blank"').html_safe %></p>
+          </td>
+        </tr>
+        <tr>
+          <th>営業時間</th>
+          <td>
+            <!-- &.で空の時nilを渡す -->
+            <p><%= @shop.bussiness_start_time&.strftime( "%H:%M" ) %>～<%= @shop.bussiness_end_time&.strftime( "%H:%M" ) %></p>
+          </td>
+        </tr>
+        <tr>
+          <th>定休日</th>
+          <td>
+            <p><%= @shop.holiday %></p>
+          </td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td>
+            <p><%= @shop.telephone_number %></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <!--google map -->
+  <script>
+    let map;
 
-            function initMap() {
-              geocoder = new google.maps.Geocoder()
+      function initMap() {
+        geocoder = new google.maps.Geocoder()
 
-              map = new google.maps.Map(document.getElementById('map'), {
-                // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
-                center: {
-                  lat: <%=@shop.latitude%>,
-                  lng: <%=@shop.longitude%>
-                },
-                zoom: 12,
-              });
+        map = new google.maps.Map(document.getElementById('map'), {
+          // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+          center: {
+            lat: <%=@shop.latitude%>,
+            lng: <%=@shop.longitude%>
+          },
+          zoom: 12,
+        });
 
-              marker = new google.maps.Marker({
-                // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
-                position: {
-                  lat: <%=@shop.latitude%>,
-                  lng: <%=@shop.longitude%>
-                },
-                map: map
-              });
-            }
-        </script>
-        <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap">
-        </script>
-      <h5 class="font-weight-bold mt-2">店舗概要</h5>
-        <p><%= @shop.description %></p>
-      <h5 class="font-weight-bold">URL</h5>
-        <p><%= Rinku.auto_link(@shop.url, :all, 'target="_blank"').html_safe %></p>
-      <h5 class="font-weight-bold">定休日</h5>
-          <p><%= @shop.holiday %></p>
-      <h5 class="font-weight-bold">営業時間</h5>
-        <!-- &.で空の時nilを渡す -->
-        <%= @shop.bussiness_start_time&.strftime( "%H:%M" ) %>～<%= @shop.bussiness_end_time&.strftime( "%H:%M" ) %>
-      <h5 class="font-weight-bold mt-3">電話番号</h5>
-        <p><%= @shop.telephone_number %></p>
-      <h5 class="font-weight-bold"><i class="fas fa-share"></i>share</h5>
-        <!-- 店名付きでSNS投稿 -->
-        <p><%= social_share_button_tag(@shop.name) %></p>
-      <div id="visits_buttons">
+        marker = new google.maps.Marker({
+          // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+          position: {
+            lat: <%=@shop.latitude%>,
+            lng: <%=@shop.longitude%>
+          },
+          map: map
+        });
+      }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap">
+  </script>
+
+  <div class="row my-5">
+    <div class="col-sm-5 offset-md-1 mb-3">
+      <%= social_share_button_tag(@shop.name) %>
+    </div>
+    <div class="col-sm-5 d-flex justify-content-center">
+      <div id="visits_buttons", class="mr-3">
         <%= render 'public/shops/visits_buttons', shop: @shop %>
       </div>
       <div id="wishes_buttons">
@@ -55,6 +89,7 @@
       </div>
     </div>
   </div>
+
   <% if @reviews.present? %>
   <div class="row">
     <div class="col-sm-12 mx-auto my-5">
