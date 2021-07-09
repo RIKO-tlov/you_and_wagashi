@@ -95,3 +95,13 @@ ul {
   width: 3.5em;
   outline : none;
 }
+
+$size: 25px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}

@@ -81,3 +81,4 @@ gem 'geocoder'
 gem 'rubocop-airbnb'
 gem "chartkick"
 gem 'ransack'
+gem 'rinku'
