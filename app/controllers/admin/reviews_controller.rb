@@ -3,7 +3,7 @@ class Admin::ReviewsController < ApplicationController
 
   def index
     @shop = Shop.find(params[:shop_id])
-    @reviews = @shop.reviews.order(created_at: :desc)
+    @reviews = @shop.reviews.order(created_at: :desc).includes(:user)
     #グラフ
     @score = @shop.reviews.pluck(:score)
     @aggregate = aggregateScore(@score)
