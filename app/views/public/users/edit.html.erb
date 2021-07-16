@@ -1,33 +1,50 @@
-<div class="container">
+<div class="container shadow-lg my-4">
   <div class="row">
-    <div class="col-sm-3 mx-auto py-5">
+    <div class="col-sm-3 col-md-5 mx-auto py-5">
       <h2 class="title text-center pb-3">マイページ編集</h2>
     </div>
   </div>
+
   <%= form_with model: @user, local: true do |f| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <h3><%= @user.errors.count %>件の必須項目を入力してください</h3>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="row">
-    <div class="col-sm-5 text-center">
-      <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.png", size:'150x150'%><br />
+    <div class="col-sm-5 col-md-5 text-center">
+      <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.png", size:'150x150' %><br />
       <label for="inputImage">プロフィール画像</label>
       <%= f.attachment_field :profile_image %>
     </div>
+    
     <div class="col-sm-4">
       <p class="mb-3">
         <label for="inputName">名前</label><br />
         <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"name" %>
       </p>
+      
       <p class="mb-3">
         <label for="inputEmail">メールアドレス</label><br />
         <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"email" %>
       </p>
+      
       <p class="mb-3">
         <label for="inputBirthdate">生年月日</label><br />
         <%= f.date_field :birthdate, class:"form-control", id:"inputBirthdate" %>
       </p>
+      
       <p class="mb-3" >
         <label for="inputAge">年齢</label><br />
         <%= f.number_field :age, class:"form-control", id:"inputAge" %>
       </p>
+      
       <p><%= f.submit "変更を保存", class: "btn mt-3" %></p>
     </div>
   </div>

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag('favicon.ico') %>
     <title>YouAndWagashi</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,6 +17,7 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid d-flex align-items-center">
           <a class="navbar-brand" href="/"><%= image_tag('sakura.png') %>  <strong>あなたと和菓子と</strong></a>
+          <p class="header-notice mt-1"><%= flash[:notice] %></p>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
             <i class="fas fa-chevron-circle-down"></i>
           </button>
@@ -29,6 +31,9 @@
                   <%= link_to "紹介する", new_shop_path %>
                 </li>
                 <li class="nav-item">
+                  <%= link_to "About", about_path %>
+                </li>
+                <li class="nav-item">
                   <%= link_to "ランキング", ranking_path %>
                 </li>
                 <li class="nav-item">
@@ -36,6 +41,12 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
+                <li>
+                  <%= search_form_for @q, url: search_shops_path do |f| %>
+                    <%= f.search_field :name_cont, placeholder: '店名検索', class:"ml-2 search_container" %>
+                    <%= f.submit '検索', class:"search_container-btn" %>
+                  <% end %>
                 </li>
               <% elsif admin_signed_in? %>
                 <li class="nav-item">
@@ -48,6 +59,9 @@
                   <%= link_to "お店一覧", admin_root_path %>
                 </li>
               <% else %>
+                <li class="nav-item">
+                  <%= link_to 'ゲストログイン', homes_guest_sign_in_path, method: :post %>
+                </li>
                 <li class="nav-item">
                   <%= link_to "新規登録", new_user_registration_path %>
                 </li>
@@ -63,8 +77,11 @@
                 <li class="nav-item">
                   <%= link_to "お店一覧", shops_path %>
                 </li>
-                <li class="nav-item">
-                  <%= link_to "マイページ", new_user_registration_path %>
+                <li>
+                  <%= search_form_for @q, url: search_shops_path do |f| %>
+                    <%= f.search_field :name_cont, placeholder: '店名検索', class:"ml-2 search_container" %>
+                    <%= f.submit '検索', class:"search_container-btn" %>
+                  <% end %>
                 </li>
               <% end %>
             </ul>
@@ -76,7 +93,6 @@
       <%= yield %>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
   </body>

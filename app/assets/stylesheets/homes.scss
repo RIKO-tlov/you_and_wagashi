@@ -11,4 +11,75 @@
   height: 100vh;
   margin: 0 auto;
   padding: 0 auto;
+.jumbotron {
+  background-color: transparent !important;
+  background-image: image-url('PF_top.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  // padding: 0 auto !important;
+  margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .jumbotron {
+    background-image: image-url('PF_top.jpg');
+    background-repeat: repeat-y;
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+.title-top {
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  display: inline-block;
+  text-aling: center;
+  color: #fff;
+
+}
+
+.title-sub-top {
+  color: #fff;
+}
+
+/* aboutページのレイアウト */
+.about-img {
+  animation: flash 5s linear infinite;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* トップタイトル */
+.fadeup {
+  animation: fadeup 5s cubic-bezier(0.33, 1, 0.68, 1) 1 forwards;
+}
+
+@keyframes fadeup {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

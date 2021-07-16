@@ -12,8 +12,14 @@
 
 .card-image {
   width: 100%;
-  height: 50vh;
-  object-fit: cover;
+  height: 60vh;
+  object-fit: contain; /*cantain or cover */
+  border-radius: 6px; /* containだと反応していない */
+}
+
+.card-body {
+  height: 250px;
+  overflow: hidden;
 }
 
 .main-image {
@@ -22,44 +28,42 @@
   object-fit: contain;
 }
 
-/* 行ったボタン */
+/* === 行ったボタン === */
 .btn-square-raised {
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
-  background: #ffba78;/*ボタン色*/
-  color: #ffba78;/*ボタン色と同じに*/
+  background: #ffba78;
+  color: #ffba78;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
   border-bottom: solid 3px #d27d00;
-  border-radius: 3px;/*角の丸み*/
+  border-radius: 3px;
   font-weight: bold;
   text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
 }
 
 .btn-square-raised:active {
-  /*ボタンを押したとき*/
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
   border-bottom: none;
 }
 
-/* 行きたいボタン */
+/* === 行きたいボタン === */
 .btn-square-raised-wish {
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
-  background: #ff8181;/*ボタン色*/
-  color: #ff8181;/*ボタン色と同じに*/
+  background: #ff8181;
+  color: #ff8181;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
   border-bottom: solid 3px #bd6565;
-  border-radius: 3px;/*角の丸み*/
+  border-radius: 3px;
   font-weight: bold;
   text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
 }
 
 .btn-square-raised-wish:active {
-  /*ボタンを押したとき*/
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
@@ -106,7 +110,7 @@
     margin-top: -5px;
     }
 
-/* 編集ボタン */
+/* ===== 編集ボタン ===== */
 .btn-flat-bottom-border {
   position: relative;
   display: inline-block;
@@ -128,7 +132,7 @@
   color: #fff;
 }
 
-/* 削除ボタン */
+/* ===== 削除ボタン ===== */
 .btn-flat-bottom-border-delete {
   position: relative;
   display: inline-block;
@@ -177,7 +181,11 @@
   top: calc(100% - 3px);
 }
 
-/* 枠を超えたら折り返す */
+.btn-border-bottom:hover {
+  color: #000000;
+}
+
+/* === 枠を超えたら折り返す === */
 p {
   word-break : break-all;
 }
@@ -211,6 +219,15 @@ a:hover {
   text-decoration: none !important;
 }
 
+.nav-link {
+  color: #96514d;
+}
+
+.nav-link:hover {
+  color: #96514d;
+}
+
+
 /* レビューテーブルレスポンシブ */
 @media screen and (max-width: 1000px) {
   table {
@@ -219,4 +236,9 @@ a:hover {
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
+}
+
+#map {
+  width: 100%;
+  height: 200px;
 }

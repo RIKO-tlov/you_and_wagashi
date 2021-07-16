@@ -3,48 +3,56 @@
     <%= f.attachment_field :shop_image %>
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-xs-4 mx-auto">
-    <label for="inputKanaName">ふりかな</label>
+    <label for="inputKanaName">ふりがな <span class="badge badge-danger">必須</span></label>
     <%= f.text_field :kana_name, autofocus: true, class:"form-control" %>
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-xs-4 mx-auto">
-    <label for="inputName">店名</label>
+    <label for="inputName">店名 <span class="badge badge-danger">必須</span></label>
     <%= f.text_field :name, autocomplete: "name", class:"form-control", id:"inputName" %>
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-xs-4 mx-auto">
-    <label for="inputPostalCode">〒郵便番号</label>
+    <label for="inputPostalCode">〒郵便番号 <span class="badge badge-danger">必須</span></label>
     <%= f.text_field :postal_code, autocomplete: "郵便番号", class:"form-control" %>
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-xs-4 mx-auto">
-    <label for="inputAddress">住所</label>
+    <label for="inputAddress">住所 <span class="badge badge-danger">必須</span></label>
     <%= f.text_field :address, class:"form-control" %>
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-xs-4 mx-auto">
     <label for="inputDescription">店舗説明</label>
     <%= f.text_area :description, class:"form-control" %>
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-xs-4 mx-auto">
     <label for="inputUrl">URL</label>
     <%= f.text_field :url, class:"form-control" %>
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-xs-4 mx-auto">
     <label for="inputHoliday">定休日</label>
     <%= f.text_field :holiday, class:"form-control" %>
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-xs-4 mx-auto">
     <label for="inputBussinessHours">営業時間</label>
@@ -52,9 +60,10 @@
     <%= f.time_field :bussiness_end_time, class:"form-control", id: 'business_end_time' %>
   </div>
 </div>
+
 <div class="form-group row">
   <div class="col-xs-4 mx-auto">
-    <label for="inputTelephoneNumber">電話番号</label>
+    <label for="inputTelephoneNumber">電話番号 <span class="badge badge-danger">必須</span></label>
     <%= f.text_field :telephone_number, class:"form-control" %>
   </div>
 </div>

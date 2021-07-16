@@ -25,8 +25,11 @@
 }
 
 body {
+  height: 100vh;
+  width: 100%;
   font-family: "komadori+.otf";
   src: url('/fonts/komadori+.otf') format('truetype');
+  font-family: 'MS PMincho', "YuMincho", "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
 }
 
 header {
@@ -51,14 +54,16 @@ header a:hover {
   transform: scale(1.1);
 }
 
+.header-notice {
+  color: #fff;
+}
+
 button i {
   color: #fff;
 }
 
 .main {
   width: 100%;
-  padding-top: 30px;
-  padding-bottom: 30px;
   color: #96514d;
 }
 
@@ -67,3 +72,37 @@ ul {
   list-style: none;
 }
 
+/* フラッシュメッセージ */
+.notice {
+  color: #68be8d;
+}
+
+/* 検索フォーム */
+.search_container{
+  border: 2px solid #96514d;
+  padding: 3px 10px;
+  border-radius: 4px;
+  height: 2.0em;
+  width: 110px;
+  overflow: hidden;
+}
+.search_container-btn{
+  cursor: pointer;
+  border: none;
+  background: #fff;
+  color: #96514d;
+  border-radius: 3px;
+  width: 3.5em;
+  outline : none;
+}
+
+/* SNSシェアボタン */
+$size: 25px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}

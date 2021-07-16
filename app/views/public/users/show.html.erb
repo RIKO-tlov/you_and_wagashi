@@ -1,14 +1,17 @@
-<div class="container">
+<div class="container shadow-lg my-3">
   <div class="row">
-    <div class="col-sm-3 mx-auto py-5">
-      <h2 class="title text-center pb-3">マイページ</h2>
+    <div class="col-sm-3 col-md-4 mx-auto text-center py-5">
+    <p class="notice"><%= flash[:notice] %></p>
+      <h2 class="title pb-3">マイページ</h2>
     </div>
   </div>
+
   <div class="row">
     <div class="col-sm-5 text-center">
       <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.png", size:'150x150' %>
       <p>プロフィール画像</p>
     </div>
+    
     <div class="col-sm-7">
       <table class="table table-borderless">
         <tbody>
@@ -47,13 +50,14 @@
           <tr>
             <td class="font-weight-bold">レビューした店</td>
             <td>
-              <%#= link_to reviews_users_path do %>
-                <%#= @user.reviews.count %>件
-              <%# end %>
+              <%= link_to reviews_users_path do %>
+                <%= @shops.count %>件
+              <% end %>
             </td>
           </tr>
         </tbody>
       </table>
+      
       <% if @user.id == current_user.id %>
         <p><%= link_to "編集", edit_user_path(@user.id), class: "btn col-4 mt-3" %></p>
       <% end %>

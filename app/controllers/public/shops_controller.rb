@@ -1,4 +1,5 @@
 class Public::ShopsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :ranking, :search]
 
   def new
     @shop = Shop.new
@@ -8,29 +9,32 @@ class Public::ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     if @shop.save
-      redirect_to shops_path
+      redirect_to shops_path, alert: '新しい和菓子屋が投稿されました!'
     else
       render :new
     end
   end
 
   def index
-    @shops = Shop.all
+    @shops = Shop.order(created_at: :desc)
   end
 
   def show
     @shop = Shop.find(params[:id])
-    @reviews = @shop.reviews
+    @reviews = @shop.reviews.order(created_at: :desc).includes(:user, :genre)
   end
 
   def edit
     @shop = Shop.find(params[:id])
+    unless @shop.user == current_user
+      redirect_to shop_path(@shop)
+    end
   end
 
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to shop_path(@shop)
+      redirect_to shop_path(@shop), alert: '編集されました!'
     else
       render :edit
     end
@@ -39,12 +43,19 @@ class Public::ShopsController < ApplicationController
   def destroy
     shop = Shop.find(params[:id])
     shop.destroy
-    redirect_to shops_path
+    redirect_to shops_path, alert: '削除されました。またのご紹介お待ちしております!'
   end
 
   def ranking
-    @all_ranks = Shop.create_all_ranks
+    @week_ranks = Shop.week_ranks
+    @ranks = Shop.all_ranks
   end
+
+  def search
+    @results = @q.result
+    # resultメソッドでActiveRecord_Relationのオブジェクトに変換
+  end
+
 
   private
 
@@ -61,4 +72,5 @@ class Public::ShopsController < ApplicationController
                                  :bussiness_end_time,
                                  :telephone_number)
   end
+
 end
