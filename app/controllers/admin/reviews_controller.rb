@@ -4,24 +4,9 @@ class Admin::ReviewsController < ApplicationController
   def index
     @shop = Shop.find(params[:shop_id])
     @reviews = @shop.reviews.order(created_at: :desc).includes(:user)
-    #グラフ
+    #　円グラフ
     @score = @shop.reviews.pluck(:score)
-    @aggregate = aggregateScore(@score)
-  end
-
-  def aggregateScore(array)
-    require 'bigdecimal'
-    result = [["ポジティブ",0],["ニュートラル",0],["ネガティブ",0]]
-    array.each do |i|
-      if BigDecimal(i.to_s.to_d).floor(1).to_f >= 0.3
-        result[0][1] +=1
-      elsif BigDecimal(i.to_s.to_d).floor(1).to_f >= -0.3
-        result[1][1] +=1
-      else
-        result[2][1] +=1
-      end
-    end
-    return result
+    @aggregate = Review.aggregateScore(@score)
   end
 
   def destroy
