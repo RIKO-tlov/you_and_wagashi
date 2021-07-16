@@ -6,4 +6,5 @@ class Admin::ShopsController < ApplicationController
     shop.destroy
     redirect_to request.referer, notice: '和菓子店を１件削除しました'
   end
+
 end

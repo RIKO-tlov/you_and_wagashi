@@ -10,4 +10,5 @@ class Admin::HomesController < ApplicationController
     shop.destroy
     redirect_to shops_path, notice: '削除されました'
   end
+
 end

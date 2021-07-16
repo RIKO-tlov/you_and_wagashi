@@ -1,4 +1,5 @@
 class Public::ReviewsController < ApplicationController
+
   def new
     @review = Review.new
     @shop = Shop.find(params[:shop_id])
@@ -8,7 +9,8 @@ class Public::ReviewsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @review = current_user.reviews.new(review_params)
     @review.shop_id = @shop.id
-    @review.score = Language.get_data(review_params[:comment]) #APIでスコアをcreate
+    # APIでスコア
+    @review.score = Language.get_data(review_params[:comment])
     if @review.save
       redirect_to shop_path(@shop), alert: 'レビューを投稿しました!'
     else
@@ -40,6 +42,7 @@ class Public::ReviewsController < ApplicationController
     @reviews = @shop.reviews
   end
 
+
   private
 
   def review_params
@@ -51,4 +54,5 @@ class Public::ReviewsController < ApplicationController
                                    :product_image,
                                    :genre_id)
   end
+
 end

@@ -46,6 +46,7 @@
     </table>
     </div>
   </div>
+  
   <!--google map -->
   <script>
     let map;
@@ -91,56 +92,58 @@
   </div>
 
   <% if @reviews.present? %>
-  <div class="row">
-    <div class="col-sm-12 mx-auto my-5">
-      <!--総合星評価-->
-      <div id="average-rating">
-        <%= render partial: 'public/shops/review_total_rate', locals: { reviews: @reviews } %>
+    <div class="row">
+      <div class="col-sm-12 mx-auto my-5">
+        <!--総合星評価-->
+        <div id="average-rating">
+          <%= render partial: 'public/shops/review_total_rate', locals: { reviews: @reviews } %>
+        </div>
+        <script>
+        function average_rating(){
+          console.log('average_rating');
+          $('.average-rating').raty({
+            size: 36,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= @reviews.average(:rate) %>,
+          });
+        }
+        average_rating();
+        </script>
+  
+        <!--/総合星評価-->
+        <div id='review-count'>
+          <p class="mt-3">レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop), class:"link" %></p>
+        </div>
       </div>
-      <script>
-      function average_rating(){
-        console.log('average_rating');
-        $('.average-rating').raty({
-          size: 36,
-          starOff: '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          half: true,
-          readOnly: true,
-          score: <%= @reviews.average(:rate) %>,
-        });
-      }
-      average_rating();
-      </script>
-
-      <!--/総合星評価-->
-      <div id='review-count'>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-8 mx-auto">
+        <%= render 'public/shops/review_index', shop: @shop%>
+      </div>
+    </div>
+    
+    <script>
+      $('.star-rate').raty({
+        size: 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,
+        readOnly: true,
+      });
+    </script>
+  <% else %>
+    <div class="row">
+      <div class="col-sm-12 mx-auto">
+        <h2>レビューはありません</h2>
         <p class="mt-3">レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop), class:"link" %></p>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8 mx-auto">
-      <%= render 'public/shops/review_index', shop: @shop%>
-    </div>
-  </div>
-  <script>
-    $('.star-rate').raty({
-      size: 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn : '<%= asset_path('star-on.png') %>',
-      starHalf: '<%= asset_path('star-half.png') %>',
-      half: true,
-      readOnly: true,
-    });
-  </script>
-  <% else %>
-  <div class="row">
-    <div class="col-sm-12 mx-auto">
-      <h2>レビューはありません</h2>
-      <p class="mt-3">レビュー<%= @reviews.count %>件 | <%= link_to "レビューを書く", new_shop_review_path(@shop), class:"link" %></p>
-    </div>
-  </div>
   <% end %>
 </div>
 
