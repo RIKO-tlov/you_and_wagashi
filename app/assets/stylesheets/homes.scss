@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container {
-  padding-right: 0 !important;
-}
 .top-image {
   background-color: transparent !important;
   background-image: image-url('PF_top.jpg');
@@ -38,16 +35,21 @@
   color: #fff;
 }
 
-@media only screen and (max-width: 500px) {
-  .text br {
-    display: inline;
-  }
-}
-
 .method {
   background-color: #deb068;
   height: 200px;
   width: 100%;
+}
+
+.about-image img {
+  display: block;
+  margin: auto;
+}
+
+@media screen and (max-width: 1050px) {
+  .about-image img {
+    width: 100%;
+  }
 }
 
 /* aboutページのレイアウト */
