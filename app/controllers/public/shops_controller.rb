@@ -21,7 +21,7 @@ class Public::ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @reviews = @shop.reviews.order(created_at: :desc)
+    @reviews = @shop.reviews.order(created_at: :desc).includes(:user, :genre)
   end
 
   def edit
@@ -53,7 +53,7 @@ class Public::ShopsController < ApplicationController
 
   def search
     @results = @q.result
-    #resultメソッドでActiveRecord_Relationのオブジェクトに変換
+    # resultメソッドでActiveRecord_Relationのオブジェクトに変換
   end
 
 
@@ -72,4 +72,5 @@ class Public::ShopsController < ApplicationController
                                  :bussiness_end_time,
                                  :telephone_number)
   end
+
 end

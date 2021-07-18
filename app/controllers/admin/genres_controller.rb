@@ -32,9 +32,11 @@ class Admin::GenresController < ApplicationController
     redirect_to admin_genres_path, notice: 'ジャンルを削除しました'
   end
 
+
   private
 
   def genre_params
     params.require(:genre).permit(:name)
   end
+
 end
