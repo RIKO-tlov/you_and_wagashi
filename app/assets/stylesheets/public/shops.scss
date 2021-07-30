@@ -7,7 +7,12 @@
 }
 
 .title {
-  border-bottom: 3px double #000000;
+  border-bottom: 3px double #96514d;
+  color: #96514d;
+}
+
+h2, h4, h5 {
+  color: #96514d;
 }
 
 .card-image {
@@ -20,6 +25,7 @@
 .card-body {
   height: 250px;
   overflow: hidden;
+  color: #96514d;
 }
 
 .main-image {
@@ -188,6 +194,7 @@
 /* === 枠を超えたら折り返す === */
 p {
   word-break : break-all;
+  color: #96514d;
 }
 
 .button {
@@ -241,4 +248,8 @@ a:hover {
 #map {
   width: 100%;
   height: 200px;
+}
+
+h3.rank {
+  color: #96514d;
 }
